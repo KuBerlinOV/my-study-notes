@@ -4,8 +4,7 @@ const app = express();
 const path = require('path');
 const publicPath = path.join(__dirname, 'client', 'build')
 
-const whitelist = ['http://localhost:3000', 'http://localhost:8080', 'https://shrouded-journey-38552.heroku...
-]
+const whitelist = ['http://localhost:3000', 'http://localhost:8080', 'https://my-study-notes.herokuapp.com']
 const corsOptions = {
     origin: function (origin, callback) {
         console.log("** Origin of request " + origin)
