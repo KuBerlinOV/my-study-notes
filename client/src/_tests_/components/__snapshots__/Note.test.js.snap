@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Note should render Note 1`] = `
+<Note
+  createdAt={0}
+  description="redux note"
+  id="1"
+  note="here is a note"
+  reference="some reference"
+  removeNote={[MockFunction]}
+  status="mastered"
+  tag="some tag"
+  topic="redux"
+  updateStatus={[MockFunction]}
+>
+  <div>
+    <h3>
+       Topic: 
+      redux
+       
+    </h3>
+    <p>
+      Description: 
+      redux note
+       
+    </p>
+    <p>
+      Note: 
+      here is a note
+       
+    </p>
+    <p>
+      Reference: 
+      some reference
+       
+    </p>
+    <p>
+      Tag: 
+      some tag
+       
+    </p>
+    <p>
+      Status: 
+      mastered
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Change status
+    </button>
+    <p>
+      Date: 
+      January 1st 1970, 1:00
+       
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Delete
+    </button>
+    <button
+      onClick={[Function]}
+    >
+       Edit
+    </button>
+  </div>
+</Note>
+`;

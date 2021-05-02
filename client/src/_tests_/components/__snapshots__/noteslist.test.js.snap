@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotesList should render NotesList 1`] = `
+<div>
+  <ul>
+    <li>
+      <Connect(Note)
+        createdAt={0}
+        description="redux note"
+        id="1"
+        key="redux"
+        note="here is a note"
+        reference="some reference"
+        status="mastered"
+        tag="some tag"
+        topic="redux"
+      />
+    </li>
+    <li>
+      <Connect(Note)
+        createdAt={-518400000}
+        description="react note"
+        id="2"
+        key="react"
+        note="here is another note"
+        reference="some other reference"
+        status="in progress"
+        tag="some other tag"
+        topic="react"
+      />
+    </li>
+    <li>
+      <Connect(Note)
+        createdAt={345600000}
+        description="about moment"
+        id="3"
+        key="moment.js"
+        note="here is information"
+        reference="moment from moment.js"
+        status="in progress"
+        tag="moment"
+        topic="moment.js"
+      />
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`NotesList should render paragraph 1`] = `
+<div>
+  <p>
+    No notes
+  </p>
+</div>
+`;

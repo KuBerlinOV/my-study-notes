@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditNote should render EditNote correctly 1`] = `
+<EditNote
+  editNote={[MockFunction]}
+  history={
+    Object {
+      "push": [MockFunction],
+    }
+  }
+  note={
+    Object {
+      "createdAt": 0,
+      "description": "redux note",
+      "id": "1",
+      "note": "here is a note",
+      "reference": "some reference",
+      "status": "mastered",
+      "tag": "some tag",
+      "topic": "redux",
+    }
+  }
+>
+  <div>
+    <NoteForm
+      handleSubmit={[Function]}
+      note={
+        Object {
+          "createdAt": 0,
+          "description": "redux note",
+          "id": "1",
+          "note": "here is a note",
+          "reference": "some reference",
+          "status": "mastered",
+          "tag": "some tag",
+          "topic": "redux",
+        }
+      }
+    >
+      <div>
+        <form
+          action=""
+          data-testid="form"
+          onSubmit={[Function]}
+        >
+          <h3>
+            Create Note
+          </h3>
+          <h3>
+            Topic:
+          </h3>
+          <input
+            autoFocus={true}
+            name="topic"
+            onChange={[Function]}
+            placeholder="topic"
+            type="text"
+            value="redux"
+          />
+          <h3>
+            Description
+          </h3>
+          <input
+            id=""
+            name="description"
+            onChange={[Function]}
+            placeholder="description"
+            type="text"
+            value="redux note"
+          />
+          <h3>
+            Note
+          </h3>
+          <textarea
+            cols="30"
+            id=""
+            name="note"
+            onChange={[Function]}
+            placeholder="write your note here"
+            rows="10"
+            value="here is a note"
+          />
+          <h3>
+            Reference
+          </h3>
+          <input
+            id=""
+            name="reference"
+            onChange={[Function]}
+            placeholder="reference"
+            type="text"
+            value="some reference"
+          />
+          <h3>
+            Tag
+          </h3>
+          <input
+            name="tag"
+            onChange={[Function]}
+            placeholder="tag"
+            type="text"
+            value="some tag"
+          />
+          <div>
+            <button>
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </NoteForm>
+  </div>
+</EditNote>
+`;

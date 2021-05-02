@@ -1,0 +1,628 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NoteForm should render NoteForm correctly 1`] = `
+<div>
+  <div>
+    <form
+      action=""
+      data-testid="form"
+    >
+      <h3>
+        Create Note
+      </h3>
+      <h3>
+        Topic:
+      </h3>
+      <input
+        name="topic"
+        placeholder="topic"
+        type="text"
+        value=""
+      />
+      <h3>
+        Description
+      </h3>
+      <input
+        id=""
+        name="description"
+        placeholder="description"
+        type="text"
+        value=""
+      />
+      <h3>
+        Note
+      </h3>
+      <textarea
+        cols="30"
+        id=""
+        name="note"
+        placeholder="write your note here"
+        rows="10"
+      />
+      <h3>
+        Reference
+      </h3>
+      <input
+        id=""
+        name="reference"
+        placeholder="reference"
+        type="text"
+        value=""
+      />
+      <h3>
+        Tag
+      </h3>
+      <input
+        name="tag"
+        placeholder="tag"
+        type="text"
+        value=""
+      />
+      <div>
+        
+        <button>
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NoteForm should render NoteForm with a note data correctly 1`] = `
+<div>
+  <div>
+    <form
+      action=""
+      data-testid="form"
+    >
+      <h3>
+        Create Note
+      </h3>
+      <h3>
+        Topic:
+      </h3>
+      <input
+        name="topic"
+        placeholder="topic"
+        type="text"
+        value="redux"
+      />
+      <h3>
+        Description
+      </h3>
+      <input
+        id=""
+        name="description"
+        placeholder="description"
+        type="text"
+        value="redux note"
+      />
+      <h3>
+        Note
+      </h3>
+      <textarea
+        cols="30"
+        id=""
+        name="note"
+        placeholder="write your note here"
+        rows="10"
+      >
+        here is a note
+      </textarea>
+      <h3>
+        Reference
+      </h3>
+      <input
+        id=""
+        name="reference"
+        placeholder="reference"
+        type="text"
+        value="some reference"
+      />
+      <h3>
+        Tag
+      </h3>
+      <input
+        name="tag"
+        placeholder="tag"
+        type="text"
+        value="some tag"
+      />
+      <div>
+        
+        <button>
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NoteForm should render error for invalid form submission 1`] = `
+<div>
+  <div>
+    <form
+      action=""
+      data-testid="form"
+    >
+      <h3>
+        Create Note
+      </h3>
+      <h3>
+        Topic:
+      </h3>
+      <input
+        name="topic"
+        placeholder="topic"
+        type="text"
+        value=""
+      />
+      <h3>
+        Description
+      </h3>
+      <input
+        id=""
+        name="description"
+        placeholder="description"
+        type="text"
+        value=""
+      />
+      <h3>
+        Note
+      </h3>
+      <textarea
+        cols="30"
+        id=""
+        name="note"
+        placeholder="write your note here"
+        rows="10"
+      />
+      <h3>
+        Reference
+      </h3>
+      <input
+        id=""
+        name="reference"
+        placeholder="reference"
+        type="text"
+        value=""
+      />
+      <h3>
+        Tag
+      </h3>
+      <input
+        name="tag"
+        placeholder="tag"
+        type="text"
+        value=""
+      />
+      <div>
+        
+        <button>
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NoteForm should render error for invalid form submission 2`] = `
+<div>
+  <div>
+    <form
+      action=""
+      data-testid="form"
+    >
+      <h3>
+        Create Note
+      </h3>
+      <h3>
+        Topic:
+      </h3>
+      <input
+        name="topic"
+        placeholder="topic"
+        type="text"
+        value=""
+      />
+      <h3>
+        Description
+      </h3>
+      <input
+        id=""
+        name="description"
+        placeholder="description"
+        type="text"
+        value=""
+      />
+      <h3>
+        Note
+      </h3>
+      <textarea
+        cols="30"
+        id=""
+        name="note"
+        placeholder="write your note here"
+        rows="10"
+      />
+      <h3>
+        Reference
+      </h3>
+      <input
+        id=""
+        name="reference"
+        placeholder="reference"
+        type="text"
+        value=""
+      />
+      <h3>
+        Tag
+      </h3>
+      <input
+        name="tag"
+        placeholder="tag"
+        type="text"
+        value=""
+      />
+      <div>
+        <p>
+          Please provide topic and description
+        </p>
+        <button>
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NoteForm should update description input value on change 1`] = `
+<div>
+  <div>
+    <form
+      action=""
+      data-testid="form"
+    >
+      <h3>
+        Create Note
+      </h3>
+      <h3>
+        Topic:
+      </h3>
+      <input
+        name="topic"
+        placeholder="topic"
+        type="text"
+        value=""
+      />
+      <h3>
+        Description
+      </h3>
+      <input
+        id=""
+        name="description"
+        placeholder="description"
+        type="text"
+        value="new description"
+      />
+      <h3>
+        Note
+      </h3>
+      <textarea
+        cols="30"
+        id=""
+        name="note"
+        placeholder="write your note here"
+        rows="10"
+      />
+      <h3>
+        Reference
+      </h3>
+      <input
+        id=""
+        name="reference"
+        placeholder="reference"
+        type="text"
+        value=""
+      />
+      <h3>
+        Tag
+      </h3>
+      <input
+        name="tag"
+        placeholder="tag"
+        type="text"
+        value=""
+      />
+      <div>
+        
+        <button>
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NoteForm should update note input value on change 1`] = `
+<div>
+  <div>
+    <form
+      action=""
+      data-testid="form"
+    >
+      <h3>
+        Create Note
+      </h3>
+      <h3>
+        Topic:
+      </h3>
+      <input
+        name="topic"
+        placeholder="topic"
+        type="text"
+        value=""
+      />
+      <h3>
+        Description
+      </h3>
+      <input
+        id=""
+        name="description"
+        placeholder="description"
+        type="text"
+        value=""
+      />
+      <h3>
+        Note
+      </h3>
+      <textarea
+        cols="30"
+        id=""
+        name="note"
+        placeholder="write your note here"
+        rows="10"
+      >
+        new note
+      </textarea>
+      <h3>
+        Reference
+      </h3>
+      <input
+        id=""
+        name="reference"
+        placeholder="reference"
+        type="text"
+        value=""
+      />
+      <h3>
+        Tag
+      </h3>
+      <input
+        name="tag"
+        placeholder="tag"
+        type="text"
+        value=""
+      />
+      <div>
+        
+        <button>
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NoteForm should update reference input value on change 1`] = `
+<div>
+  <div>
+    <form
+      action=""
+      data-testid="form"
+    >
+      <h3>
+        Create Note
+      </h3>
+      <h3>
+        Topic:
+      </h3>
+      <input
+        name="topic"
+        placeholder="topic"
+        type="text"
+        value=""
+      />
+      <h3>
+        Description
+      </h3>
+      <input
+        id=""
+        name="description"
+        placeholder="description"
+        type="text"
+        value=""
+      />
+      <h3>
+        Note
+      </h3>
+      <textarea
+        cols="30"
+        id=""
+        name="note"
+        placeholder="write your note here"
+        rows="10"
+      />
+      <h3>
+        Reference
+      </h3>
+      <input
+        id=""
+        name="reference"
+        placeholder="reference"
+        type="text"
+        value="new reference"
+      />
+      <h3>
+        Tag
+      </h3>
+      <input
+        name="tag"
+        placeholder="tag"
+        type="text"
+        value=""
+      />
+      <div>
+        
+        <button>
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NoteForm should update tag input value on change 1`] = `
+<div>
+  <div>
+    <form
+      action=""
+      data-testid="form"
+    >
+      <h3>
+        Create Note
+      </h3>
+      <h3>
+        Topic:
+      </h3>
+      <input
+        name="topic"
+        placeholder="topic"
+        type="text"
+        value=""
+      />
+      <h3>
+        Description
+      </h3>
+      <input
+        id=""
+        name="description"
+        placeholder="description"
+        type="text"
+        value=""
+      />
+      <h3>
+        Note
+      </h3>
+      <textarea
+        cols="30"
+        id=""
+        name="note"
+        placeholder="write your note here"
+        rows="10"
+      />
+      <h3>
+        Reference
+      </h3>
+      <input
+        id=""
+        name="reference"
+        placeholder="reference"
+        type="text"
+        value=""
+      />
+      <h3>
+        Tag
+      </h3>
+      <input
+        name="tag"
+        placeholder="tag"
+        type="text"
+        value="new tag"
+      />
+      <div>
+        
+        <button>
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`NoteForm should update topic input value on change 1`] = `
+<div>
+  <div>
+    <form
+      action=""
+      data-testid="form"
+    >
+      <h3>
+        Create Note
+      </h3>
+      <h3>
+        Topic:
+      </h3>
+      <input
+        name="topic"
+        placeholder="topic"
+        type="text"
+        value="new topic"
+      />
+      <h3>
+        Description
+      </h3>
+      <input
+        id=""
+        name="description"
+        placeholder="description"
+        type="text"
+        value=""
+      />
+      <h3>
+        Note
+      </h3>
+      <textarea
+        cols="30"
+        id=""
+        name="note"
+        placeholder="write your note here"
+        rows="10"
+      />
+      <h3>
+        Reference
+      </h3>
+      <input
+        id=""
+        name="reference"
+        placeholder="reference"
+        type="text"
+        value=""
+      />
+      <h3>
+        Tag
+      </h3>
+      <input
+        name="tag"
+        placeholder="tag"
+        type="text"
+        value=""
+      />
+      <div>
+        
+        <button>
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;

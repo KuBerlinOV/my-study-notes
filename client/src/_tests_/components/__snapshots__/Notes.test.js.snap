@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notes should render Notes page 1`] = `
+<div>
+  <section>
+    <Connect(NotesListFilters) />
+    <h1>
+      My notes: 
+    </h1>
+    <button>
+      <Link
+        to="/addnote"
+      >
+        Create Note
+      </Link>
+    </button>
+    <Connect(NotesList) />
+  </section>
+</div>
+`;

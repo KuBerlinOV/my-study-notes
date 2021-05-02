@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddNote should render AddNote correctly 1`] = `
+<div>
+  <div>
+    <form
+      action=""
+      data-testid="form"
+    >
+      <h3>
+        Create Note
+      </h3>
+      <h3>
+        Topic:
+      </h3>
+      <input
+        name="topic"
+        placeholder="topic"
+        type="text"
+        value=""
+      />
+      <h3>
+        Description
+      </h3>
+      <input
+        id=""
+        name="description"
+        placeholder="description"
+        type="text"
+        value=""
+      />
+      <h3>
+        Note
+      </h3>
+      <textarea
+        cols="30"
+        id=""
+        name="note"
+        placeholder="write your note here"
+        rows="10"
+      />
+      <h3>
+        Reference
+      </h3>
+      <input
+        id=""
+        name="reference"
+        placeholder="reference"
+        type="text"
+        value=""
+      />
+      <h3>
+        Tag
+      </h3>
+      <input
+        name="tag"
+        placeholder="tag"
+        type="text"
+        value=""
+      />
+      <div>
+        
+        <button>
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
