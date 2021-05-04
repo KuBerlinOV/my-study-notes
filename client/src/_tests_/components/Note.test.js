@@ -2,14 +2,15 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { Note } from '../../components/Note';
 import notes from '../fixtures/notes'
+import Modal from 'react-modal';
+//testing react modal => https://remarkablemark.org/blog/2017/05/17/testing-react-modal/
 
-
-let wrapper, removeNoteSpy, updateStatusSpy;
+let wrapper, handleModalSpy, updateStatusSpy;
 
 beforeEach(() => {
-    removeNoteSpy = jest.fn();
+    handleModalSpy = jest.fn();
     updateStatusSpy = jest.fn();
-    wrapper = mount(<Note removeNote={removeNoteSpy} updateStatus={updateStatusSpy} {...notes[0]} />);
+    wrapper = mount(<Note updateStatus={updateStatusSpy} {...notes[0]} />);
 })
 
 describe('Note', () => {
@@ -26,9 +27,13 @@ describe('Note', () => {
         // />)
         expect(wrapper).toMatchSnapshot();
     })
-    it('should call remove note with correct id', () => {
+    it('renders react-modal', () => {
+        expect(wrapper.find(Modal)).toHaveLength(1);
+        expect(wrapper.find(Modal).prop('isOpen')).toBe(false);
+    });
+    it('opens modal', () => {
         wrapper.find('button').at(1).simulate('click')
-        expect(removeNoteSpy).toHaveBeenCalledWith(notes[0].id)
+        expect(wrapper.find(Modal).prop('isOpen')).toBe(true);
     })
     it('should call update note with correct id', () => {
         wrapper.find('button').at(0).simulate('click')

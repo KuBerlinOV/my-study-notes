@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import moment from 'moment';
 
 //moment 
-const now = moment().format('MMMM Do YYYY, h:mm:ss a');
+// const now = moment().format('MMMM Do YYYY, h:mm:ss a');
 //props.noteBeforeUpdate ? moment(props.noteBeforeUpdate.createdAt) :
 
 const NoteForm = (props) => {
@@ -12,10 +12,10 @@ const NoteForm = (props) => {
     const [state, setState] = useState({
         topic: props.note ? props.note.topic : '',
         description: props.note ? props.note.description : '',
-        note: props.note ? props.note.note : '',
+        text: props.note ? props.note.text : '',
         reference: props.note ? props.note.reference : '',
         tag: props.note ? props.note.tag : '',
-        createdAt: props.note ? props.note.createdAt : moment(),
+        createdAt: props.note ? props.note.createdAt : moment().format(),
         error: ''
     });
 
@@ -30,7 +30,7 @@ const NoteForm = (props) => {
     }
 
     const handleSubmit = (e) => {
-        if (!state.topic || !state.description) {
+        if (!state.topic) {
             setState({ error: 'Please provide topic and description' })
         } else {
             setState({ error: '' })
@@ -51,7 +51,7 @@ const NoteForm = (props) => {
                 <h3>Description</h3>
                 <input type="text" placeholder="description" name="description" id="" value={state.description || ''} onChange={handleChange} />
                 <h3>Note</h3>
-                <textarea placeholder="write your note here" name="note" id="" cols="30" rows="10" value={state.note || ''} onChange={handleChange} ></textarea>
+                <textarea placeholder="write your note here" name="text" id="" cols="30" rows="10" value={state.text || ''} onChange={handleChange} ></textarea>
                 <h3>Reference</h3>
                 <input type="text" placeholder="reference" name="reference" id="" value={state.reference || ''} onChange={handleChange} />
                 <h3>Tag</h3>

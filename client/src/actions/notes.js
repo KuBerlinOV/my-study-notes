@@ -1,28 +1,68 @@
-import { v4 as uuidv4 } from 'uuid';
+import { database } from '../firebase/firebase';
 
+// import { v4 as uuidv4 } from 'uuid'
 //ADD_NOTE
-export const addNote = ({ topic = '', // in this case you should imagine destructuring as you are passing some object with the same data like ' const movie = {title, year, id} '
-    description = '',           //when we are passing it to the action function as an argument and destructuring it. 
-    note = '',                 //when it would be like ' const {title, year, id} = movie ' 
-    reference = '',            //Furthermore, we provide here the default values for the object keys so
+
+// export const addNote = ({ topic = '', // in this case you should imagine destructuring as you are passing some object with the same data like ' const movie = {title, year, id} '
+//     description = '',           //when we are passing it to the action function as an argument and destructuring it. 
+//     note = '',                 //when it would be like ' const {title, year, id} = movie ' 
+//     reference = '',            //Furthermore, we provide here the default values for the object keys so
+//     tag = '#',
+//     status = 'in progress',     //the user could leave these options empty if he wanted to.
+//     createdAt = 0
+// } = {}) => {
+//     return {
+//         type: 'ADD_NOTE',
+//         note: {
+//             id: uuidv4(),
+//             topic,
+//             description,
+//             note,
+//             reference,
+//             tag,
+//             status,
+//             createdAt
+//         }
+//     }
+// }
+
+
+export const addNote = (note) => ({
+    type: 'ADD_NOTE',
+    note
+})
+
+export const startAddNote = ({
+    topic = '',
+    description = '',
+    text = '',
+    reference = '',
     tag = '#',
-    status = 'in progress',     //the user could leave these options empty if he wanted to.
+    status = 'in progress',
     createdAt = 0
 } = {}) => {
-    return {
-        type: 'ADD_NOTE',
-        note: {
-            id: uuidv4(),
+    return (dispatch) => {
+        const note = {
             topic,
             description,
-            note,
+            text,
             reference,
             tag,
             status,
             createdAt
-        }
-    }
-}
+        };
+        database.ref('notes').push(note)
+            .then((ref) => {
+                dispatch(addNote(
+                    {
+                        id: ref.key,
+                        ...note
+                    }))
+            }).catch((e) => {
+                console.log(e, 'this did not work')
+            });
+    };
+};
 
 //EDIT_NOTE
 

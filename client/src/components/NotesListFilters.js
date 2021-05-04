@@ -49,6 +49,8 @@ export const NotesListFilters = (props) => {
                     onFocusChange={handleOnFocusChange}
                     numberOfMonths={1}
                     isOutsideRange={() => false}
+                    startDateId="startDateId"
+                    endDateId="endDateId"
                 />
             </div>
         </div>

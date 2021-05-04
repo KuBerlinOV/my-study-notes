@@ -5,11 +5,10 @@ exports[`Note should render Note 1`] = `
   createdAt={0}
   description="redux note"
   id="1"
-  note="here is a note"
   reference="some reference"
-  removeNote={[MockFunction]}
   status="mastered"
   tag="some tag"
+  text="here is a note"
   topic="redux"
   updateStatus={[MockFunction]}
 >
@@ -26,7 +25,6 @@ exports[`Note should render Note 1`] = `
     </p>
     <p>
       Note: 
-      here is a note
        
     </p>
     <p>
@@ -63,6 +61,83 @@ exports[`Note should render Note 1`] = `
     >
        Edit
     </button>
+    <Modal
+      ariaHideApp={true}
+      bodyOpenClassName="ReactModal__Body--open"
+      className="delete-warning"
+      closeTimeoutMS={0}
+      contentElement={[Function]}
+      isOpen={false}
+      onRequestClose={[Function]}
+      overlayElement={[Function]}
+      parentSelector={[Function]}
+      portalClassName="ReactModalPortal"
+      preventScroll={false}
+      role="dialog"
+      shouldCloseOnEsc={true}
+      shouldCloseOnOverlayClick={true}
+      shouldFocusAfterRender={true}
+      shouldReturnFocusAfterClose={true}
+    >
+      <Portal
+        containerInfo={
+          <div
+            class="ReactModalPortal"
+          />
+        }
+      >
+        <ModalPortal
+          ariaHideApp={true}
+          bodyOpenClassName="ReactModal__Body--open"
+          className="delete-warning"
+          closeTimeoutMS={0}
+          contentElement={[Function]}
+          defaultStyles={
+            Object {
+              "content": Object {
+                "WebkitOverflowScrolling": "touch",
+                "background": "#fff",
+                "border": "1px solid #ccc",
+                "borderRadius": "4px",
+                "bottom": "40px",
+                "left": "40px",
+                "outline": "none",
+                "overflow": "auto",
+                "padding": "20px",
+                "position": "absolute",
+                "right": "40px",
+                "top": "40px",
+              },
+              "overlay": Object {
+                "backgroundColor": "rgba(255, 255, 255, 0.75)",
+                "bottom": 0,
+                "left": 0,
+                "position": "fixed",
+                "right": 0,
+                "top": 0,
+              },
+            }
+          }
+          isOpen={false}
+          onRequestClose={[Function]}
+          overlayElement={[Function]}
+          parentSelector={[Function]}
+          portalClassName="ReactModalPortal"
+          preventScroll={false}
+          role="dialog"
+          shouldCloseOnEsc={true}
+          shouldCloseOnOverlayClick={true}
+          shouldFocusAfterRender={true}
+          shouldReturnFocusAfterClose={true}
+          style={
+            Object {
+              "content": Object {},
+              "overlay": Object {},
+            }
+          }
+        />
+      </Portal>
+    </Modal>
   </div>
 </Note>
 `;

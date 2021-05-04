@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import { addNote } from '../actions/notes';
+import { startAddNote } from '../actions/notes';
 import NoteForm from './NoteForm';
 
 export const AddNote = (props) => {
@@ -9,7 +8,7 @@ export const AddNote = (props) => {
     return (
         <NoteForm
             handleSubmit={(note) => {
-                props.addNote(note);
+                props.startAddNote(note);
                 props.history.push('/notes');
             }}
         />
@@ -17,7 +16,7 @@ export const AddNote = (props) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    addNote: (note) => dispatch(addNote(note))
+    startAddNote: (note) => dispatch(startAddNote(note))
 })
 
 export default connect(undefined, mapDispatchToProps)(AddNote);

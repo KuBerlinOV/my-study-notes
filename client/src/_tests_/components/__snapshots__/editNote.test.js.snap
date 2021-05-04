@@ -13,10 +13,10 @@ exports[`EditNote should render EditNote correctly 1`] = `
       "createdAt": 0,
       "description": "redux note",
       "id": "1",
-      "note": "here is a note",
       "reference": "some reference",
       "status": "mastered",
       "tag": "some tag",
+      "text": "here is a note",
       "topic": "redux",
     }
   }
@@ -29,10 +29,10 @@ exports[`EditNote should render EditNote correctly 1`] = `
           "createdAt": 0,
           "description": "redux note",
           "id": "1",
-          "note": "here is a note",
           "reference": "some reference",
           "status": "mastered",
           "tag": "some tag",
+          "text": "here is a note",
           "topic": "redux",
         }
       }
@@ -74,7 +74,7 @@ exports[`EditNote should render EditNote correctly 1`] = `
           <textarea
             cols="30"
             id=""
-            name="note"
+            name="text"
             onChange={[Function]}
             placeholder="write your note here"
             rows="10"

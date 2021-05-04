@@ -9,13 +9,13 @@ let addNoteSpy, historySpy, wrapper;
 beforeEach(() => {
     addNoteSpy = jest.fn();
     historySpy = { push: jest.fn() };
-    wrapper = shallow(<AddNote addNote={addNoteSpy} history={historySpy} />);
+    wrapper = shallow(<AddNote startAddNote={addNoteSpy} history={historySpy} />);
 })
 
 
 describe('AddNote', () => {
     it('should render AddNote correctly', () => {
-        const { container } = render(<AddNote addNote={addNoteSpy} history={historySpy} />);
+        const { container } = render(<AddNote startAddNote={addNoteSpy} history={historySpy} />);
         expect(container).toMatchSnapshot();
     })
     //in this test enzyme is used in order to access the handleSubmit prop of the functional component

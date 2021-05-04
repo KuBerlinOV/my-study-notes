@@ -9,10 +9,10 @@ exports[`NotesList should render NotesList 1`] = `
         description="redux note"
         id="1"
         key="redux"
-        note="here is a note"
         reference="some reference"
         status="mastered"
         tag="some tag"
+        text="here is a note"
         topic="redux"
       />
     </li>
@@ -22,10 +22,10 @@ exports[`NotesList should render NotesList 1`] = `
         description="react note"
         id="2"
         key="react"
-        note="here is another note"
         reference="some other reference"
         status="in progress"
         tag="some other tag"
+        text="here is another note"
         topic="react"
       />
     </li>
@@ -35,10 +35,10 @@ exports[`NotesList should render NotesList 1`] = `
         description="about moment"
         id="3"
         key="moment.js"
-        note="here is information"
         reference="moment from moment.js"
         status="in progress"
         tag="moment"
+        text="here is information"
         topic="moment.js"
       />
     </li>

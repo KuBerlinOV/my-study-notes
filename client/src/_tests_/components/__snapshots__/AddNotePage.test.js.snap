@@ -35,7 +35,7 @@ exports[`AddNote should render AddNote correctly 1`] = `
       <textarea
         cols="30"
         id=""
-        name="note"
+        name="text"
         placeholder="write your note here"
         rows="10"
       />

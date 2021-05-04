@@ -68,9 +68,9 @@ describe("NoteForm", () => {
     it('should update note input value on change', () => {
         const { container, queryByPlaceholderText } = render(<NoteForm />)
 
-        const noteInput = queryByPlaceholderText('write your note here');
-        fireEvent.change(noteInput, { target: { value: 'new note' } });
-        expect(noteInput.value).toBe('new note')
+        const textInput = queryByPlaceholderText('write your note here');
+        fireEvent.change(textInput, { target: { value: 'new note' } });
+        expect(textInput.value).toBe('new note')
         expect(container).toMatchSnapshot();
     });
     it('should update reference input value on change', () => {
@@ -98,7 +98,7 @@ describe("NoteForm", () => {
         expect(handleSubmitSpy).toHaveBeenLastCalledWith({
             topic: notes[2].topic,
             description: notes[2].description,
-            note: notes[2].note,
+            text: notes[2].text,
             reference: notes[2].reference,
             tag: notes[2].tag,
             createdAt: notes[2].createdAt,

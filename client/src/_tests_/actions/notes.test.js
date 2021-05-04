@@ -1,4 +1,5 @@
 import { addNote, removeNote, updateNote } from '../../actions/notes';
+import notes from '../fixtures/notes';
 
 test('should set up remove note action object', () => {
     const action = removeNote('1234gv');
@@ -20,41 +21,29 @@ test('should set up update note', () => {
 })
 
 test('shoud set app add note action', () => {
-    const noteData = {
-        topic: 'testing',
-        description: 'learning how to test your applications',
-        note: 'this is a very useful skill',
-        reference: "",
-        status: "in progress",
-        tag: "#",
-        createdAt: 7000
-    }
-    const action = addNote(noteData)
+    const action = addNote(notes[2])
 
     expect(action).toEqual({
         type: 'ADD_NOTE',
-        note: {
-            ...noteData,
-            id: expect.any(String)
-        }
+        note: notes[2]
     })
 })
 
 
-test('shoud set app add note action with default note', () => {
+// test('shoud set app add note action with default note', () => {
 
-    const action = addNote();
-    expect(action).toEqual({
-        type: 'ADD_NOTE',
-        note: {
-            topic: '',
-            description: '',
-            note: '',
-            reference: "",
-            status: "in progress",
-            tag: "#",
-            createdAt: 0,
-            id: expect.any(String)
-        }
-    })
-})
+//     const action = addNote();
+//     expect(action).toEqual({
+//         type: 'ADD_NOTE',
+//         note: {
+//             topic: '',
+//             description: '',
+//             note: '',
+//             reference: "",
+//             status: "in progress",
+//             tag: "#",
+//             createdAt: 0,
+//             id: expect.any(String)
+//         }
+//     })
+// })
