@@ -2,13 +2,15 @@
 
 exports[`NotesList should render NotesList 1`] = `
 <div>
-  <ul>
+  <ul
+    key="noteid"
+  >
     <li>
       <Connect(Note)
         createdAt={0}
         description="redux note"
         id="1"
-        key="redux"
+        key="1"
         reference="some reference"
         status="mastered"
         tag="some tag"
@@ -21,7 +23,7 @@ exports[`NotesList should render NotesList 1`] = `
         createdAt={-518400000}
         description="react note"
         id="2"
-        key="react"
+        key="2"
         reference="some other reference"
         status="in progress"
         tag="some other tag"
@@ -34,7 +36,7 @@ exports[`NotesList should render NotesList 1`] = `
         createdAt={345600000}
         description="about moment"
         id="3"
-        key="moment.js"
+        key="3"
         reference="moment from moment.js"
         status="in progress"
         tag="moment"

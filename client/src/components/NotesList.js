@@ -10,10 +10,10 @@ export const NotesList = (props) => {
             { props.notes.length === 0 ? (
                 <p>No notes</p>
             ) : (
-                <ul>
+                <ul key={"noteid"} >
                     {props.notes.map(note => {
                         return <li><Note
-                            key={note.topic}
+                            key={note.id}
                             id={note.id}
                             {...note}
                             showModal={props.showModal}

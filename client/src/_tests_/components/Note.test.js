@@ -5,12 +5,12 @@ import notes from '../fixtures/notes'
 import Modal from 'react-modal';
 //testing react modal => https://remarkablemark.org/blog/2017/05/17/testing-react-modal/
 
-let wrapper, handleModalSpy, updateStatusSpy;
+let wrapper, removeNoteSpy, updateStatusSpy;
 
 beforeEach(() => {
-    handleModalSpy = jest.fn();
+    removeNoteSpy = jest.fn();
     updateStatusSpy = jest.fn();
-    wrapper = mount(<Note updateStatus={updateStatusSpy} {...notes[0]} />);
+    wrapper = mount(<Note removeNote={removeNoteSpy} updateStatus={updateStatusSpy} {...notes[0]} />);
 })
 
 describe('Note', () => {
@@ -26,7 +26,7 @@ describe('Note', () => {
         // // status={notes[0].status}
         // />)
         expect(wrapper).toMatchSnapshot();
-    })
+    });
     it('renders react-modal', () => {
         expect(wrapper.find(Modal)).toHaveLength(1);
         expect(wrapper.find(Modal).prop('isOpen')).toBe(false);
@@ -34,9 +34,14 @@ describe('Note', () => {
     it('opens modal', () => {
         wrapper.find('button').at(1).simulate('click')
         expect(wrapper.find(Modal).prop('isOpen')).toBe(true);
-    })
+    });
     it('should call update note with correct id', () => {
         wrapper.find('button').at(0).simulate('click')
         expect(updateStatusSpy).toHaveBeenCalledWith(notes[0].id)
+    });
+    it('should call remove note with correct id', () => {
+        wrapper.find('button').at(1).simulate('click')
+        wrapper.find('button').at(3).simulate('click')
+        expect(removeNoteSpy).toHaveBeenCalledWith(notes[0].id)
     })
 })

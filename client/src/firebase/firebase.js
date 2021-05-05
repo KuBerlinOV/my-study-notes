@@ -7,6 +7,17 @@ import 'firebase/database';
 import 'firebase/firestore';
 import 'firebase/storage';
 
+//config for testing database 
+// const firebaseConfigTest = {
+//     apiKey: "AIzaSyCpleu_xUzCrlUzyPWQLijtmH3KCqhyvaQ",
+//     authDomain: "my-study-notes-test.firebaseapp.com",
+//     projectId: "my-study-notes-test",
+//     storageBucket: "my-study-notes-test.appspot.com",
+//     messagingSenderId: "258552542269",
+//     appId: "1:258552542269:web:69692d305b2ff9bad02654",
+//     measurementId: "G-1D41TQKQ3S"
+// };
+
 const firebaseConfig = {
     apiKey: "AIzaSyA3cz98YRe3gHFEVr1okM6sK3PAKEcEh-c",
     authDomain: "my-study-notes.firebaseapp.com",

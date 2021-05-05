@@ -24,6 +24,8 @@ export const Note = ({ topic, description, note, reference, tag, createdAt, id, 
         e.preventDefault();
         setOpenModal(!openModal)
     }
+
+
     return (
         <div>
             <h3> Topic: {topic} </h3>
@@ -42,14 +44,13 @@ export const Note = ({ topic, description, note, reference, tag, createdAt, id, 
             }}> Edit</button>
             <Modal
                 isOpen={openModal}
+                ariaHideApp={false}
                 onRequestClose={handleModal}
                 className="delete-warning"
             >
                 <h3>Are you sure?</h3>
                 <p>Do you really want to delete this note? This process cannot be undone!</p>
-                <button onClick={() => {
-                    removeNote(id)
-                }}>Delete</button>
+                <button onClick={() => { removeNote(id) }}>Delete</button>
             </Modal>
         </div>
     )

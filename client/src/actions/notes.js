@@ -51,7 +51,7 @@ export const startAddNote = ({
             status,
             createdAt
         };
-        database.ref('notes').push(note)
+        return database.ref('notes').push(note)
             .then((ref) => {
                 dispatch(addNote(
                     {

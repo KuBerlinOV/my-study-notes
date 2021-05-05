@@ -6,6 +6,7 @@ exports[`Note should render Note 1`] = `
   description="redux note"
   id="1"
   reference="some reference"
+  removeNote={[MockFunction]}
   status="mastered"
   tag="some tag"
   text="here is a note"
@@ -62,7 +63,7 @@ exports[`Note should render Note 1`] = `
        Edit
     </button>
     <Modal
-      ariaHideApp={true}
+      ariaHideApp={false}
       bodyOpenClassName="ReactModal__Body--open"
       className="delete-warning"
       closeTimeoutMS={0}
@@ -87,7 +88,7 @@ exports[`Note should render Note 1`] = `
         }
       >
         <ModalPortal
-          ariaHideApp={true}
+          ariaHideApp={false}
           bodyOpenClassName="ReactModal__Body--open"
           className="delete-warning"
           closeTimeoutMS={0}
