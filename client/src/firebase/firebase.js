@@ -8,28 +8,29 @@ import 'firebase/firestore';
 import 'firebase/storage';
 
 //config for testing database 
-// const firebaseConfigTest = {
-//     apiKey: "AIzaSyCpleu_xUzCrlUzyPWQLijtmH3KCqhyvaQ",
-//     authDomain: "my-study-notes-test.firebaseapp.com",
-//     projectId: "my-study-notes-test",
-//     storageBucket: "my-study-notes-test.appspot.com",
-//     messagingSenderId: "258552542269",
-//     appId: "1:258552542269:web:69692d305b2ff9bad02654",
-//     measurementId: "G-1D41TQKQ3S"
-// };
 
-const firebaseConfig = {
-    apiKey: "AIzaSyA3cz98YRe3gHFEVr1okM6sK3PAKEcEh-c",
-    authDomain: "my-study-notes.firebaseapp.com",
-    databaseURL: "https://my-study-notes-default-rtdb.firebaseio.com",
-    projectId: "my-study-notes",
-    storageBucket: "my-study-notes.appspot.com",
-    messagingSenderId: "50418473866",
-    appId: "1:50418473866:web:5d23a20374db9b932d8673",
-    measurementId: "G-3YSM8JEREJ"
+const firebaseConfigTest = {
+    apiKey: "AIzaSyCpleu_xUzCrlUzyPWQLijtmH3KCqhyvaQ",
+    authDomain: "my-study-notes-test.firebaseapp.com",
+    projectId: "my-study-notes-test",
+    storageBucket: "my-study-notes-test.appspot.com",
+    messagingSenderId: "258552542269",
+    appId: "1:258552542269:web:69692d305b2ff9bad02654",
+    measurementId: "G-1D41TQKQ3S"
 };
 
-firebase.initializeApp(firebaseConfig);
+// const firebaseConfig = {
+//     apiKey: "AIzaSyA3cz98YRe3gHFEVr1okM6sK3PAKEcEh-c",
+//     authDomain: "my-study-notes.firebaseapp.com",
+//     databaseURL: "https://my-study-notes-default-rtdb.firebaseio.com",
+//     projectId: "my-study-notes",
+//     storageBucket: "my-study-notes.appspot.com",
+//     messagingSenderId: "50418473866",
+//     appId: "1:50418473866:web:5d23a20374db9b932d8673",
+//     measurementId: "G-3YSM8JEREJ"
+// };
+
+firebase.initializeApp(firebaseConfigTest);
 
 firebase.firestore();
 

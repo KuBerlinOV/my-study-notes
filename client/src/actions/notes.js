@@ -53,6 +53,7 @@ export const startAddNote = ({
         };
         return database.ref('notes').push(note)
             .then((ref) => {
+                //we are dispatching after pushing the note to the database 
                 dispatch(addNote(
                     {
                         id: ref.key,
@@ -83,3 +84,28 @@ export const removeNote = (id) => ({
     type: 'REMOVE_NOTE',
     id
 })
+
+//SET_NOTES and startSetNotes
+export const setNotes = (notes) => ({
+    type: 'SET_NOTES',
+    notes
+});
+
+
+export const startSetNotes = () => {
+    return (dispatch) => {
+        //the second return before the database is needed in order to make sure that in the index js file it will pass
+        return database.ref('notes').once('value').then((snapshot) => {
+            const notes = [];
+            snapshot.forEach((childSnapshot) => {
+                notes.push({
+                    id: childSnapshot.key,
+                    ...childSnapshot.val()
+                })
+            })
+            dispatch(setNotes(notes))
+        }).catch((e) => {
+            console.log(e, 'this did not work')
+        })
+    }
+};

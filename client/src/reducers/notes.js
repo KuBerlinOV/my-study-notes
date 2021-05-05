@@ -3,6 +3,8 @@ const notesReducerDefaultState = []
 
 const notesReducer = (state = notesReducerDefaultState, action) => {
     switch (action.type) {
+        case 'SET_NOTES':
+            return action.notes;
         case 'ADD_NOTE':
             return [...state, action.note];
         case 'UPDATE_NOTE':

@@ -86,4 +86,14 @@ test('should change status to in progress if current status is mastered', () => 
     };
     const state = notesReducer(notes, action);
     expect(state).toEqual([{ ...notes[0], status: 'in progress' }, notes[1], notes[2]])
+});
+
+//this makes sure that then setup notes would overwrite the state of the reducer
+test('should set notes as a state of the reducer', () => {
+    const action = {
+        type: 'SET_NOTES',
+        notes: [notes[0], notes[2]]
+    }
+    const state = notesReducer(notes, action);
+    expect(state).toEqual([notes[0], notes[2]])
 })

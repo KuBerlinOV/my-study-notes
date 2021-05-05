@@ -1,11 +1,21 @@
-import { addNote, removeNote, updateNote, startAddNote } from '../../actions/notes';
+import { addNote, removeNote, updateNote, startAddNote, setNotes, startSetNotes } from '../../actions/notes';
 import notes from '../fixtures/notes';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { database } from '../../firebase/firebase';
 
-
 const createStore = configureMockStore([thunk])
+
+beforeEach((done) => {
+    //creating data  for test database, we taking it from notes fixture, pushing it to notesData 
+    //in the similar data structure as in the firebase and then sending this data to firebase test database
+    const notesData = {};
+    notes.forEach(({ id, topic, description, text, reference, status, tag, createdAt }) => {
+        notesData[id] = { topic, description, text, reference, status, tag, createdAt }
+    })
+    //we need then with method done, in order to make sure that the test won't fire until the firebase will sync up the data
+    database.ref('notes').set(notesData).then(() => { done() })
+})
 
 test('should set up remove note action object', () => {
     const action = removeNote('1234gv');
@@ -14,7 +24,7 @@ test('should set up remove note action object', () => {
         type: 'REMOVE_NOTE',
         id: '1234gv'
     })
-})
+});
 
 test('should set up update note', () => {
     const action = updateNote('1432dg', { note: 'note', topic: 'newtopic' })
@@ -24,7 +34,7 @@ test('should set up update note', () => {
         id: '1432dg',
         updates: { note: 'note', topic: 'newtopic' }
     })
-})
+});
 
 test('shoud set app add note action', () => {
     const action = addNote(notes[2])
@@ -33,7 +43,7 @@ test('shoud set app add note action', () => {
         type: 'ADD_NOTE',
         note: notes[2]
     })
-})
+});
 
 
 
@@ -71,7 +81,7 @@ test('should add note to database and store', (done) => {
         expect(snapshot.val()).toEqual(noteData);
         done();
     })
-})
+});
 
 
 
@@ -112,21 +122,23 @@ test('should add note with default values to database and store', (done) => {
 })
 
 
+test('should setup set notes action object with data', () => {
+    const action = setNotes(notes);
+    expect(action).toEqual({
+        type: 'SET_NOTES',
+        notes
+    })
+});
 
-// test('shoud set up add note action with default note', () => {
-
-//     const action = addNote();
-//     expect(action).toEqual({
-//         type: 'ADD_NOTE',
-//         note: {
-//             topic: '',
-//             description: '',
-//             note: '',
-//             reference: "",
-//             status: "in progress",
-//             tag: "#",
-//             createdAt: 0,
-//             id: expect.any(String)
-//         }
-//     })
-// })
+test('should fetch notes from the firebase', (done) => {
+    const store = createStore({});
+    store.dispatch(startSetNotes()).then(() => {
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+            //the type here is SET_NOTES because in the end  this is what this functions returns and dispatches 
+            type: 'SET_NOTES',
+            notes
+        });
+        done();
+    })
+})
