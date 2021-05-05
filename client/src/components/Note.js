@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import { removeNote, updateStatus } from '../actions/notes'
+import { startRemoveNote, updateStatus } from '../actions/notes'
 import { useHistory } from 'react-router-dom';
 import Modal from 'react-modal';
 
@@ -16,7 +16,7 @@ import Modal from 'react-modal';
 //     createdAt
 // }
 
-export const Note = ({ topic, description, note, reference, tag, createdAt, id, status, updateStatus, removeNote }) => {
+export const Note = ({ topic, description, note, reference, tag, createdAt, id, status, updateStatus, startRemoveNote }) => {
     const history = useHistory(); // use this instead of link to redirect to another page with params
     const [openModal, setOpenModal] = useState(false)
 
@@ -50,7 +50,7 @@ export const Note = ({ topic, description, note, reference, tag, createdAt, id, 
             >
                 <h3>Are you sure?</h3>
                 <p>Do you really want to delete this note? This process cannot be undone!</p>
-                <button onClick={() => { removeNote(id) }}>Delete</button>
+                <button onClick={() => { startRemoveNote(id) }}>Delete</button>
             </Modal>
         </div>
     )
@@ -59,7 +59,7 @@ export const Note = ({ topic, description, note, reference, tag, createdAt, id, 
 // <Link to={`/edit/${id}`}> Edit</Link>
 
 const mapDispatchToProps = (dispatch) => ({
-    removeNote: (id) => dispatch(removeNote(id)),
+    startRemoveNote: (id) => dispatch(startRemoveNote(id)),
     updateStatus: (id) => dispatch(updateStatus(id))
 })
 

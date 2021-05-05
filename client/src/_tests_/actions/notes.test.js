@@ -141,4 +141,9 @@ test('should fetch notes from the firebase', (done) => {
         });
         done();
     })
+});
+
+test('should delete data from database and local store', () => {
+    const store = createStore({})
+
 })

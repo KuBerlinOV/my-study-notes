@@ -85,6 +85,17 @@ export const removeNote = (id) => ({
     id
 })
 
+export const startRemoveNote = (id) => {
+    return (dispatch) => {
+        return database.ref(`notes/${id}`).remove().then(() => {
+            dispatch(removeNote(id));
+        }).catch((e) => {
+            console.log(e, 'this did not work')
+        })
+    }
+}
+
+
 //SET_NOTES and startSetNotes
 export const setNotes = (notes) => ({
     type: 'SET_NOTES',

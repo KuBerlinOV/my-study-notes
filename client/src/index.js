@@ -14,12 +14,6 @@ import configureStore from './store/configureStore';
 
 const store = configureStore();
 
-// const state = store.getState();
-// const visibleNotes = getVisibleNotes(state.notes, state.filters);
-
-// console.log(visibleNotes)
-
-
 const jsx = (
   <Provider store={store}>
     <AppRouter />
