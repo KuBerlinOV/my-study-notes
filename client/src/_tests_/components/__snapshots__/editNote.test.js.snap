@@ -2,7 +2,6 @@
 
 exports[`EditNote should render EditNote correctly 1`] = `
 <EditNote
-  editNote={[MockFunction]}
   history={
     Object {
       "push": [MockFunction],
@@ -20,6 +19,7 @@ exports[`EditNote should render EditNote correctly 1`] = `
       "topic": "redux",
     }
   }
+  startUpdateNote={[MockFunction]}
 >
   <div>
     <NoteForm

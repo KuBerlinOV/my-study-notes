@@ -65,7 +65,7 @@ export const startAddNote = ({
     };
 };
 
-//EDIT_NOTE
+//EDIT_NOTE on the local store and in database
 
 export const updateNote = (id, updates) => ({
     type: 'UPDATE_NOTE',
@@ -73,10 +73,36 @@ export const updateNote = (id, updates) => ({
     updates
 })
 
+export const startUpdateNote = (id, updates) => {
+    return (dispatch) => {
+        return database.ref(`notes/${id}`).update(updates).then(() => {
+            dispatch(updateNote(id, updates))
+        }).catch((e) => {
+            console.log(e, 'the note was not updated correctly')
+        })
+    }
+}
+
+//updateStatus on the local store and database
+
 export const updateStatus = (id) => ({
     type: 'UPDATE_STATUS',
     id
 })
+
+export const startUpdateStatus = (id) => {
+    return (dispatch) => {
+        return database.ref(`/notes/${id}/status`).once('value').then(
+            (snapshot) => {
+                snapshot.val() === 'in progress' ? database.ref(`notes/${id}`).update({ status: 'mastered' })
+                    : database.ref(`notes/${id}`).update({ status: 'in progress' })
+            }).then(() => {
+                dispatch(updateStatus(id))
+            }).catch((e) => {
+                console.log(e, 'status failed to update')
+            })
+    }
+}
 
 //REMOVE_NOTE
 

@@ -1,4 +1,4 @@
-import { addNote, removeNote, updateNote, startAddNote, setNotes, startSetNotes } from '../../actions/notes';
+import { addNote, removeNote, updateNote, startAddNote, setNotes, startSetNotes, startRemoveNote, startUpdateNote, updateStatus, startUpdateStatus } from '../../actions/notes';
 import notes from '../fixtures/notes';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -17,24 +17,9 @@ beforeEach((done) => {
     database.ref('notes').set(notesData).then(() => { done() })
 })
 
-test('should set up remove note action object', () => {
-    const action = removeNote('1234gv');
 
-    expect(action).toEqual({
-        type: 'REMOVE_NOTE',
-        id: '1234gv'
-    })
-});
 
-test('should set up update note', () => {
-    const action = updateNote('1432dg', { note: 'note', topic: 'newtopic' })
-
-    expect(action).toEqual({
-        type: 'UPDATE_NOTE',
-        id: '1432dg',
-        updates: { note: 'note', topic: 'newtopic' }
-    })
-});
+// testing redux ansynchronous actions, add note to database and local store
 
 test('shoud set app add note action', () => {
     const action = addNote(notes[2])
@@ -45,10 +30,6 @@ test('shoud set app add note action', () => {
     })
 });
 
-
-
-// testing redux ansynchronous actions
-// had to jest.setTimeout otherwise exceeds the standard timeout
 
 test('should add note to database and store', (done) => {
     const store = createStore({});
@@ -122,6 +103,8 @@ test('should add note with default values to database and store', (done) => {
 })
 
 
+//fetching notes from the database and setting up data
+
 test('should setup set notes action object with data', () => {
     const action = setNotes(notes);
     expect(action).toEqual({
@@ -143,7 +126,79 @@ test('should fetch notes from the firebase', (done) => {
     })
 });
 
-test('should delete data from database and local store', () => {
-    const store = createStore({})
+//remove note from local store and database test
 
+test('should set up remove note action object', () => {
+    const action = removeNote('1234gv');
+
+    expect(action).toEqual({
+        type: 'REMOVE_NOTE',
+        id: '1234gv'
+    })
+});
+
+test('should delete data from database and local store', (done) => {
+    const store = createStore({})
+    const id = notes[1].id
+    store.dispatch(startRemoveNote(id)).then(() => {
+        const actions = store.getActions()
+        expect(actions[0]).toEqual({
+            type: 'REMOVE_NOTE',
+            id
+        })
+        //here we are trying to assert that the note was indeed deleted from database byt fetching it 
+        //if snapshot return null this means the item with such an id does not exist in database
+        return database.ref(`notes/${actions[0].id}`).once('value')
+    }).then((snapshot) => {
+        expect(snapshot.val()).toBeFalsy();
+        done();
+    })
+
+})
+
+//update note test 
+
+test('should set up update note', () => {
+    const action = updateNote('1432dg', { test: 'note', topic: 'newtopic' })
+
+    expect(action).toEqual({
+        type: 'UPDATE_NOTE',
+        id: '1432dg',
+        updates: { test: 'note', topic: 'newtopic' }
+    })
+});
+
+test('should set up update note and update it in the databse correctly', (done) => {
+    const store = createStore({})
+    const id = notes[0].id
+    store.dispatch(startUpdateNote(id, { topic: 'new topic', text: 'new note' })).then(() => {
+        const actions = store.getActions()
+        expect(actions[0]).toEqual({
+            type: 'UPDATE_NOTE',
+            id: id,
+            updates: { topic: 'new topic', text: 'new note' }
+        })
+        return database.ref(`notes/${id}`).once('value')
+    }).then((snapshot) => {
+        expect(snapshot.val().topic).toEqual('new topic')
+        done();
+    })
+})
+
+//test update status
+
+test('it should update status of the note', (done) => {
+    const store = createStore({})
+    const id = notes[2].id
+    store.dispatch(startUpdateStatus(id)).then(() => {
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+            type: 'UPDATE_STATUS',
+            id
+        })
+        return database.ref(`notes/${id}/status`).once('value')
+    }).then((snapshot) => {
+        expect(snapshot.val()).toEqual('mastered')
+        done()
+    })
 })

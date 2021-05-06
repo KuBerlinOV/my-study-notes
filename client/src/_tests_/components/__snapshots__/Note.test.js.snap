@@ -6,12 +6,12 @@ exports[`Note should render Note 1`] = `
   description="redux note"
   id="1"
   reference="some reference"
-  removeNote={[MockFunction]}
+  startRemoveNote={[MockFunction]}
+  startUpdateStatus={[MockFunction]}
   status="mastered"
   tag="some tag"
   text="here is a note"
   topic="redux"
-  updateStatus={[MockFunction]}
 >
   <div>
     <h3>

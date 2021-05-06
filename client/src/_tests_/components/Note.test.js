@@ -10,7 +10,7 @@ let wrapper, removeNoteSpy, updateStatusSpy;
 beforeEach(() => {
     removeNoteSpy = jest.fn();
     updateStatusSpy = jest.fn();
-    wrapper = mount(<Note removeNote={removeNoteSpy} updateStatus={updateStatusSpy} {...notes[0]} />);
+    wrapper = mount(<Note startRemoveNote={removeNoteSpy} startUpdateStatus={updateStatusSpy} {...notes[0]} />);
 })
 
 describe('Note', () => {

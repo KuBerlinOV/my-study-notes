@@ -8,7 +8,7 @@ let wrapper, editNoteSpy, historySpy;
 beforeEach(() => {
     editNoteSpy = jest.fn();
     historySpy = { push: jest.fn() };
-    wrapper = mount(<EditNote note={notes[0]} editNote={editNoteSpy} history={historySpy} />);
+    wrapper = mount(<EditNote note={notes[0]} startUpdateNote={editNoteSpy} history={historySpy} />);
 })
 
 describe('EditNote', () => {

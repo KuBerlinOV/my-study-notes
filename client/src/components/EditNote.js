@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import NoteForm from './NoteForm';
-import { updateNote } from '../actions/notes';
+import { startUpdateNote } from '../actions/notes';
 
 
 export const EditNote = (props) => {
@@ -13,7 +13,7 @@ export const EditNote = (props) => {
                 //this is handle submit props
                 handleSubmit={(note) => {
                     //dispatch action to edit the expense
-                    props.editNote(props.note.id, note);
+                    props.startUpdateNote(props.note.id, note);
                     //redirect to dashBoard
                     props.history.push('/notes')
                 }}
@@ -23,7 +23,7 @@ export const EditNote = (props) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    editNote: (id, note) => dispatch(updateNote(id, note))
+    startUpdateNote: (id, note) => dispatch(startUpdateNote(id, note))
 })
 
 const mapStateToProps = (state, props) => {
