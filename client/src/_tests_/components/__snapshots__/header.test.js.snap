@@ -1,57 +1,144 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header should render Header correctly 1`] = `
-<header>
-  <NavLink
-    activeClassName="is-active"
-    className="nav-link"
-    exact={true}
-    to="/"
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
   >
-    Home
-  </NavLink>
-  <NavLink
-    activeClassName="is-active"
-    className="nav-link"
-    to="/notes"
-  >
-    Notes
-  </NavLink>
-  <NavLink
-    activeClassName="is-active"
-    className="nav-link"
-    to="/about"
-  >
-    Organizing your studies
-  </NavLink>
-</header>
-`;
-
-exports[`should render Header correctly 1`] = `ShallowWrapper {}`;
-
-exports[`should render header correctly 1`] = `
-<header>
-  <NavLink
-    activeClassName="is-active"
-    className="nav-link"
-    exact={true}
-    to="/"
-  >
-    Home
-  </NavLink>
-  <NavLink
-    activeClassName="is-active"
-    className="nav-link"
-    to="/notes"
-  >
-    Notes
-  </NavLink>
-  <NavLink
-    activeClassName="is-active"
-    className="nav-link"
-    to="/about"
-  >
-    Organizing your studies
-  </NavLink>
-</header>
+    <Header
+      startLogout={[MockFunction]}
+    >
+      <header>
+        <NavLink
+          activeClassName="is-active"
+          className="nav-link"
+          exact={true}
+          to="/home"
+        >
+          <Link
+            aria-current={null}
+            className="nav-link"
+            to={
+              Object {
+                "hash": "",
+                "pathname": "/home",
+                "search": "",
+                "state": null,
+              }
+            }
+          >
+            <LinkAnchor
+              aria-current={null}
+              className="nav-link"
+              href="/home"
+              navigate={[Function]}
+            >
+              <a
+                aria-current={null}
+                className="nav-link"
+                href="/home"
+                onClick={[Function]}
+              >
+                Home
+              </a>
+            </LinkAnchor>
+          </Link>
+        </NavLink>
+        <NavLink
+          activeClassName="is-active"
+          className="nav-link"
+          to="/notes"
+        >
+          <Link
+            aria-current={null}
+            className="nav-link"
+            to={
+              Object {
+                "hash": "",
+                "pathname": "/notes",
+                "search": "",
+                "state": null,
+              }
+            }
+          >
+            <LinkAnchor
+              aria-current={null}
+              className="nav-link"
+              href="/notes"
+              navigate={[Function]}
+            >
+              <a
+                aria-current={null}
+                className="nav-link"
+                href="/notes"
+                onClick={[Function]}
+              >
+                Notes
+              </a>
+            </LinkAnchor>
+          </Link>
+        </NavLink>
+        <NavLink
+          activeClassName="is-active"
+          className="nav-link"
+          to="/about"
+        >
+          <Link
+            aria-current={null}
+            className="nav-link"
+            to={
+              Object {
+                "hash": "",
+                "pathname": "/about",
+                "search": "",
+                "state": null,
+              }
+            }
+          >
+            <LinkAnchor
+              aria-current={null}
+              className="nav-link"
+              href="/about"
+              navigate={[Function]}
+            >
+              <a
+                aria-current={null}
+                className="nav-link"
+                href="/about"
+                onClick={[Function]}
+              >
+                Organizing your studies
+              </a>
+            </LinkAnchor>
+          </Link>
+        </NavLink>
+        <button
+          onClick={[MockFunction]}
+        >
+          Logout
+        </button>
+      </header>
+    </Header>
+     
+  </Router>
+</BrowserRouter>
 `;

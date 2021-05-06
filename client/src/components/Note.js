@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import { startRemoveNote, startUpdateStatus } from '../actions/notes'
-import { useHistory } from 'react-router-dom';
 import Modal from 'react-modal';
-
+//here I imported the history object created in approuter, as note does not have access to it, as it is not rendered in the approuter
+import { history } from '../routers/approuter';
 // note: {
 //     id: uuid(),
 //     topic,
@@ -17,7 +17,7 @@ import Modal from 'react-modal';
 // }
 
 export const Note = ({ topic, description, note, reference, tag, createdAt, id, status, startUpdateStatus, startRemoveNote }) => {
-    const history = useHistory(); // use this instead of link to redirect to another page with params
+    // const history = useHistory(); // use this instead of link to redirect to another page with params
     const [openModal, setOpenModal] = useState(false)
 
     const handleModal = (e) => {
