@@ -1,14 +1,12 @@
 
-//importing components
-import requireAuth from './components/requireAuth';
-import Notes from './components/Notes';
-import Note from './components/Note';
-
+import { history } from '../src/routers/approuter'
 
 
 function App() {
+  console.log(history)
   return (
     <div className="App">
+
     </div>
   );
 }

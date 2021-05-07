@@ -24,6 +24,10 @@ const jsx = (
 
 let hasRendered = false;
 
+
+//this function is needed in order not to re-render the whole application when the user is already logged in 
+//and then logged out and other way around. In other words, when we first visit the page,
+//the app is rendered, but without fetching the data from database. So when we login, we only fetch the data and getting redirected to the homepage
 const renderApp = () => {
   if (!hasRendered) {
     ReactDOM.render(
@@ -58,7 +62,9 @@ ReactDOM.render(
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
+    console.log(history)
     store.dispatch(login(user.uid))
+    console.log(user.uid)
     store.dispatch(startSetNotes()).then(() => {
       if (history.location.pathname == '/') {
         history.push('/home')

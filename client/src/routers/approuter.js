@@ -12,6 +12,8 @@ import EditNote from '../components/EditNote'
 import LoginPage from '../components/LoginPage';
 import PrivateRoute from './PrivateRoute';
 
+//this npm history is needed in order to be able to access the history outside of the context of this 
+//component, which is in the index.js file where we redirect users. See note in the index.js file
 export const history = createBrowserHistory();
 
 const AppRouter = () => {
