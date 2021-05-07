@@ -13,7 +13,6 @@ import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import Header from '../components/Header';
 
-
 //this npm history is needed in order to be able to access the history outside of the context of this 
 //component, which is in the index.js file where we redirect users. See note in the index.js file
 export const history = createBrowserHistory();
@@ -22,13 +21,14 @@ const AppRouter = () => {
     return (
         <Router history={history} >
             <div>
+                <Header />
                 <Switch>
                     <PublicRoute path='/' component={LoginPage} exact={true} />
-                    <PrivateRoute path='/' component={App} />
+                    <PrivateRoute path='/home' component={App} />
                     <PrivateRoute path='/notes' component={Notes} />
                     <PrivateRoute path='/addnote' component={AddNote} />
                     <PrivateRoute path='/edit/:id' component={EditNote} />
-                    <PrivateRoute path='/about' component={About} />
+                    <Route path='/about' component={About} />
                     <Route component={NotFoundPage} />
                 </Switch>
             </div>

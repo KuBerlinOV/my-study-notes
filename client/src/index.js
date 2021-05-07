@@ -66,6 +66,7 @@ firebase.auth().onAuthStateChanged((user) => {
     //It is important to dispatch the login action here, redux local store would from the very beginning had this 
     //state being set up. If we would, for example dispatch it together with the action startLogin when clicking 
     //on the button the user would have to login every time when revisiting the page even though he never logged out
+    console.log(history)
     store.dispatch(login(user.uid))
     store.dispatch(startSetNotes()).then(() => {
       if (history.location.pathname == '/') {
