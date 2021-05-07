@@ -12,7 +12,7 @@ export const startLogin = () => {
 }
 
 export const logout = () => ({
-    type: 'LOGIN',
+    type: 'LOGOUT',
 })
 
 export const startLogout = () => {

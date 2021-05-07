@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 import Header from '../components/Header';
 
+//we are passing the components through the component prop
 export const PrivateRoute = ({ isAuthenticated,
     component: Component,
-    ...rest
+    ...rest //<--variable that getting all the rest of props when distructering a props object
 }) => {
     return (
         <Route {...rest} component={(props) => (
@@ -14,6 +15,7 @@ export const PrivateRoute = ({ isAuthenticated,
                     <Header />
                     <Component {...props} />
                 </div>
+
             ) : (
                 <Redirect to='/' />
             )

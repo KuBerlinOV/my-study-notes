@@ -9,6 +9,7 @@ exports[`Notes should render Notes page 1`] = `
     </h1>
     <button>
       <Link
+        replace={false}
         to="/addnote"
       >
         Create Note

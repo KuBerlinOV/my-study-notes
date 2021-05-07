@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history'
 import App from '../App'
@@ -11,6 +10,9 @@ import AddNote from '../components/AddNote';
 import EditNote from '../components/EditNote'
 import LoginPage from '../components/LoginPage';
 import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
+import Header from '../components/Header';
+
 
 //this npm history is needed in order to be able to access the history outside of the context of this 
 //component, which is in the index.js file where we redirect users. See note in the index.js file
@@ -21,12 +23,12 @@ const AppRouter = () => {
         <Router history={history} >
             <div>
                 <Switch>
-                    <Route path='/' component={LoginPage} exact={true} />
-                    <PrivateRoute path='/home' component={App} />
+                    <PublicRoute path='/' component={LoginPage} exact={true} />
+                    <PrivateRoute path='/' component={App} />
                     <PrivateRoute path='/notes' component={Notes} />
                     <PrivateRoute path='/addnote' component={AddNote} />
                     <PrivateRoute path='/edit/:id' component={EditNote} />
-                    <Route path='/about' component={About} />
+                    <PrivateRoute path='/about' component={About} />
                     <Route component={NotFoundPage} />
                 </Switch>
             </div>
