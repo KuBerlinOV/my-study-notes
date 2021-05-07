@@ -62,6 +62,9 @@ ReactDOM.render(
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
+    //It is important to dispatch the login action here, redux local store would from the very beginning had this 
+    //state being set up. If we would, for example dispatch it together with the action startLogin when clicking 
+    //on the button the user would have to login every time when revisiting the page even though he never logged out
     console.log(history)
     store.dispatch(login(user.uid))
     console.log(user.uid)
@@ -79,7 +82,3 @@ firebase.auth().onAuthStateChanged((user) => {
 })
 
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
