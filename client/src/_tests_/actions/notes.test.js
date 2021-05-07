@@ -6,6 +6,8 @@ import { database } from '../../firebase/firebase';
 
 const createStore = configureMockStore([thunk])
 
+const uid = 'testuid';
+
 beforeEach((done) => {
     //creating data  for test database, we taking it from notes fixture, pushing it to notesData 
     //in the similar data structure as in the firebase and then sending this data to firebase test database
@@ -14,7 +16,7 @@ beforeEach((done) => {
         notesData[id] = { topic, description, text, reference, status, tag, createdAt }
     })
     //we need then with method done, in order to make sure that the test won't fire until the firebase will sync up the data
-    database.ref('notes').set(notesData).then(() => { done() })
+    database.ref(`users/${uid}/notes`).set(notesData).then(() => { done() })
 })
 
 
@@ -32,7 +34,7 @@ test('shoud set app add note action', () => {
 
 
 test('should add note to database and store', (done) => {
-    const store = createStore({});
+    const store = createStore({ auth: { uid } });
     const noteData = {
         topic: 'redux-mock-store',
         description: 'used to test store',
@@ -54,7 +56,7 @@ test('should add note to database and store', (done) => {
                 ...noteData
             }
         });
-        return database.ref(`notes/${actions[0].note.id}`).once('value')
+        return database.ref(`users/${uid}/notes/${actions[0].note.id}`).once('value')
         //checking if the note was actually added to database, by pulling it back form database and comparing to test noteData
 
         //done is needed to make sure that the asynchronous dispatch action will not wait forever
@@ -71,7 +73,7 @@ test('should add note to database and store', (done) => {
 
 test('should add note with default values to database and store', (done) => {
 
-    const store = createStore({});
+    const store = createStore({ auth: { uid } });
     const defaultNoteData = {
         topic: '',
         description: '',
@@ -94,7 +96,7 @@ test('should add note with default values to database and store', (done) => {
             }
         });
         //checking if the note was actually added to database, by pulling it back form database and comparing to test noteData
-        return database.ref(`notes/${actions[0].note.id}`).once('value')
+        return database.ref(`users/${uid}/notes/${actions[0].note.id}`).once('value')
         //done is needed to make sure that the asynchronous dispatch action will not wait forever
     }).then((snapshot) => {
         expect(snapshot.val()).toEqual(defaultNoteData);
@@ -114,7 +116,7 @@ test('should setup set notes action object with data', () => {
 });
 
 test('should fetch notes from the firebase', (done) => {
-    const store = createStore({});
+    const store = createStore({ auth: { uid } });
     store.dispatch(startSetNotes()).then(() => {
         const actions = store.getActions();
         expect(actions[0]).toEqual({
@@ -138,7 +140,7 @@ test('should set up remove note action object', () => {
 });
 
 test('should delete data from database and local store', (done) => {
-    const store = createStore({})
+    const store = createStore({ auth: { uid } })
     const id = notes[1].id
     store.dispatch(startRemoveNote(id)).then(() => {
         const actions = store.getActions()
@@ -148,7 +150,7 @@ test('should delete data from database and local store', (done) => {
         })
         //here we are trying to assert that the note was indeed deleted from database byt fetching it 
         //if snapshot return null this means the item with such an id does not exist in database
-        return database.ref(`notes/${actions[0].id}`).once('value')
+        return database.ref(`users/${uid}/notes/${actions[0].id}`).once('value')
     }).then((snapshot) => {
         expect(snapshot.val()).toBeFalsy();
         done();
@@ -169,7 +171,7 @@ test('should set up update note', () => {
 });
 
 test('should set up update note and update it in the databse correctly', (done) => {
-    const store = createStore({})
+    const store = createStore({ auth: { uid } })
     const id = notes[0].id
     store.dispatch(startUpdateNote(id, { topic: 'new topic', text: 'new note' })).then(() => {
         const actions = store.getActions()
@@ -178,7 +180,7 @@ test('should set up update note and update it in the databse correctly', (done) 
             id: id,
             updates: { topic: 'new topic', text: 'new note' }
         })
-        return database.ref(`notes/${id}`).once('value')
+        return database.ref(`users/${uid}/notes/${id}`).once('value')
     }).then((snapshot) => {
         expect(snapshot.val().topic).toEqual('new topic')
         done();
@@ -188,7 +190,7 @@ test('should set up update note and update it in the databse correctly', (done) 
 //test update status
 
 test('it should update status of the note', (done) => {
-    const store = createStore({})
+    const store = createStore({ auth: { uid } })
     const id = notes[2].id
     store.dispatch(startUpdateStatus(id)).then(() => {
         const actions = store.getActions();
@@ -196,7 +198,7 @@ test('it should update status of the note', (done) => {
             type: 'UPDATE_STATUS',
             id
         })
-        return database.ref(`notes/${id}/status`).once('value')
+        return database.ref(`users/${uid}/notes/${id}/status`).once('value')
     }).then((snapshot) => {
         expect(snapshot.val()).toEqual('mastered')
         done()

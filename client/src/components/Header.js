@@ -6,17 +6,21 @@ import { connect } from 'react-redux';
 
 export const Header = ({ startLogout, isAuthenticated }) => (
     isAuthenticated ? (
-        <header id='private-hd'>
-            <NavLink activeClassName='is-active' className='nav-link' to='/home' exact={true}>Home</NavLink>
-            <NavLink activeClassName='is-active' className='nav-link' to='/notes'>Notes</NavLink>
-            <NavLink activeClassName='is-active' className='nav-link' to='/about'>About</NavLink>
-            <button onClick={startLogout} >Logout</button>
-        </header>
+        <div>
+            <header id='private-hd'>
+                <NavLink activeClassName='is-active' className='nav-link' to='/home' exact={true}>Home</NavLink>
+                <NavLink activeClassName='is-active' className='nav-link' to='/notes'>Notes</NavLink>
+                <NavLink activeClassName='is-active' className='nav-link' to='/about'>About</NavLink>
+                <button onClick={startLogout} >Logout</button>
+            </header>
+        </div>
     ) : (
-        <header id='public-hd'>
-            <NavLink activeClassName='is-active' className='nav-link' to='/' exact={true}>Login</NavLink>
-            <NavLink activeClassName='is-active' className='nav-link' to='/about'>About</NavLink>
-        </header>
+        <div>
+            <header id='public-hd'>
+                <NavLink activeClassName='is-active' className='nav-link' to='/' exact={true}>Login</NavLink>
+                <NavLink activeClassName='is-active' className='nav-link' to='/about'>About</NavLink>
+            </header>
+        </div>
     )
 );
 

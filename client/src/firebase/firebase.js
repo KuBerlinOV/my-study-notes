@@ -7,7 +7,7 @@ import 'firebase/database';
 import 'firebase/firestore';
 import 'firebase/storage';
 
-//config for testing database 
+// config for testing database 
 
 // const firebaseConfigTest = {
 //     apiKey: "AIzaSyCpleu_xUzCrlUzyPWQLijtmH3KCqhyvaQ",

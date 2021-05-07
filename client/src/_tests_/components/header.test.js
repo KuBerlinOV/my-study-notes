@@ -1,9 +1,12 @@
 // import ReactShallowRenderer from 'react-test-renderer/shallow';
 
 import React from 'react';
-import { Header } from '../../components/Header';
 import { mount } from 'enzyme';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+import { Header } from '../../components/Header';
+
+const history = createBrowserHistory();
 
 
 
@@ -20,12 +23,12 @@ import { BrowserRouter } from 'react-router-dom';
 describe('Header', () => {
     it('should render Header correctly', () => {
         const startLogoutSpy = jest.fn();
-        const wrapper = mount(<BrowserRouter><Header startLogout={startLogoutSpy} /> </BrowserRouter>)
+        const wrapper = mount(<Router history={history}> <div><Header startLogout={startLogoutSpy} /></div></Router>)
         expect(wrapper).toMatchSnapshot();
     })
     it('should call startLogout on button click', () => {
         const startLogoutSpy = jest.fn();
-        const wrapper = mount(<BrowserRouter><Header startLogout={startLogoutSpy} /> </BrowserRouter>);
+        const wrapper = mount(<Router history={history} ><Header startLogout={startLogoutSpy} /> </Router>);
         wrapper.find('button').simulate('click');
         expect(startLogoutSpy).toHaveBeenCalled();
     })

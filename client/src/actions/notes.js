@@ -41,7 +41,8 @@ export const startAddNote = ({
     status = 'in progress',
     createdAt = 0
 } = {}) => {
-    return (dispatch) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
         const note = {
             topic,
             description,
@@ -51,7 +52,7 @@ export const startAddNote = ({
             status,
             createdAt
         };
-        return database.ref('notes').push(note)
+        return database.ref(`users/${uid}/notes`).push(note)
             .then((ref) => {
                 //we are dispatching after pushing the note to the database 
                 dispatch(addNote(
@@ -74,8 +75,9 @@ export const updateNote = (id, updates) => ({
 })
 
 export const startUpdateNote = (id, updates) => {
-    return (dispatch) => {
-        return database.ref(`notes/${id}`).update(updates).then(() => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid
+        return database.ref(`users/${uid}/notes/${id}`).update(updates).then(() => {
             dispatch(updateNote(id, updates))
         }).catch((e) => {
             console.log(e, 'the note was not updated correctly')
@@ -91,11 +93,12 @@ export const updateStatus = (id) => ({
 })
 
 export const startUpdateStatus = (id) => {
-    return (dispatch) => {
-        return database.ref(`/notes/${id}/status`).once('value').then(
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid
+        return database.ref(`users/${uid}/notes/${id}/status`).once('value').then(
             (snapshot) => {
-                snapshot.val() === 'in progress' ? database.ref(`notes/${id}`).update({ status: 'mastered' })
-                    : database.ref(`notes/${id}`).update({ status: 'in progress' })
+                snapshot.val() === 'in progress' ? database.ref(`users/${uid}/notes/${id}`).update({ status: 'mastered' })
+                    : database.ref(`users/${uid}/notes/${id}`).update({ status: 'in progress' })
             }).then(() => {
                 dispatch(updateStatus(id))
             }).catch((e) => {
@@ -112,8 +115,9 @@ export const removeNote = (id) => ({
 })
 
 export const startRemoveNote = (id) => {
-    return (dispatch) => {
-        return database.ref(`notes/${id}`).remove().then(() => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid
+        return database.ref(`users/${uid}/notes/${id}`).remove().then(() => {
             dispatch(removeNote(id));
         }).catch((e) => {
             console.log(e, 'this did not work')
@@ -130,9 +134,10 @@ export const setNotes = (notes) => ({
 
 
 export const startSetNotes = () => {
-    return (dispatch) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
         //the second return before the database is needed in order to make sure that in the index js file it will pass
-        return database.ref('notes').once('value').then((snapshot) => {
+        return database.ref(`users/${uid}/notes`).once('value').then((snapshot) => {
             const notes = [];
             snapshot.forEach((childSnapshot) => {
                 notes.push({
