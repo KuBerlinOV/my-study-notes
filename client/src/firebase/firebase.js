@@ -43,8 +43,16 @@ const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
 export { firebase, database, googleAuthProvider };
 
-
 //Reminders
+// {
+//     "topic": "topic",
+//      "text": "text",
+//      "createdAt": "1234",
+//      "status": "in progress",
+//      "tag": "#tag",
+//   "reference": "refence",
+//   "description": "desting",
+//   }
 
 // database.ref('notes').on('child_added', (snapshot) => {
 //     console.log(snapshot.key, snapshot.val())

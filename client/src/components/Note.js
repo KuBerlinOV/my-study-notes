@@ -16,7 +16,7 @@ import { history } from '../routers/approuter';
 //     createdAt
 // }
 
-export const Note = ({ topic, description, note, reference, tag, createdAt, id, status, startUpdateStatus, startRemoveNote }) => {
+export const Note = ({ topic, description, text, reference, tag, createdAt, id, status, startUpdateStatus, startRemoveNote }) => {
     // const history = useHistory(); // use this instead of link to redirect to another page with params
     const [openModal, setOpenModal] = useState(false)
 
@@ -30,7 +30,7 @@ export const Note = ({ topic, description, note, reference, tag, createdAt, id, 
         <div>
             <h3> Topic: {topic} </h3>
             <p>Description: {description} </p>
-            <p>Note: {note} </p>
+            <p>Note: {text} </p>
             <p>Reference: {reference} </p>
             <p>Tag: {tag} </p>
             <p>Status: {status}</p>
