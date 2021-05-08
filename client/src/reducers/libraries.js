@@ -19,22 +19,6 @@ const librariesReducer = (state = librariesReducerDefaultState, action) => {
             });
         case 'REMOVE_LIBRARY':
             return state.filter(({ id }) => id !== action.id);
-        case 'UPDATE_STATUS':
-            return state.map(library => {
-                if (library.id === action.id && library.status === 'in progress') {
-                    return {
-                        ...library,
-                        status: 'mastered'
-                    }
-                } else if (library.id === action.id && library.status === 'mastered') {
-                    return {
-                        ...library,
-                        status: 'in progress'
-                    }
-                } else {
-                    return library
-                }
-            })
         default:
             return state;
     }

@@ -69,11 +69,10 @@ firebase.auth().onAuthStateChanged((user) => {
     //on the button the user would have to login every time when revisiting the page even though he never logged out
     console.log(history)
     store.dispatch(login(user.uid))
-
+    store.dispatch(startSetLibraries())
     store.dispatch(startSetNotes()).then(() => {
       if (history.location.pathname == '/') {
         history.push('/home')
-        store.dispatch(startSetLibraries())
       }
       renderApp();
     })

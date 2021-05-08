@@ -10,7 +10,7 @@ export const startSetLibraries = () => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid;
         //the second return before the database is needed in order to make sure that in the index js file it will pass
-        return database.ref(`users/${uid}/notes`).once('value').then((snapshot) => {
+        return database.ref(`users/${uid}/libraries`).once('value').then((snapshot) => {
             const libraries = [];
             snapshot.forEach((childSnapshot) => {
                 libraries.push({
@@ -59,3 +59,42 @@ export const startAddLibrary = ({
             });
     };
 };
+
+
+//EDIT_Library on the local store and in database
+
+export const updateLibrary = (id, updates) => ({
+    type: 'UPDATE_LIBRARY',
+    id,
+    updates
+})
+
+export const startUpdateLibrary = (id, updates) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid
+        return database.ref(`users/${uid}/libraries/${id}`).update(updates).then(() => {
+            dispatch(updateLibrary(id, updates))
+        }).catch((e) => {
+            console.log(e, 'the note was not updated correctly')
+        })
+    }
+}
+
+
+//REMOVE_LIBRARY
+
+export const removeLibrary = (id) => ({
+    type: 'REMOVE_LIBRARY',
+    id
+})
+
+export const startRemoveLibrary = (id) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid
+        return database.ref(`users/${uid}/libraries/${id}`).remove().then(() => {
+            dispatch(removeLibrary(id));
+        }).catch((e) => {
+            console.log(e, 'this did not work')
+        })
+    }
+}

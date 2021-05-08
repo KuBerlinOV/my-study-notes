@@ -40,7 +40,7 @@ export const Note = ({ topic, description, text, reference, tag, createdAt, id, 
             <p>Date: {moment(createdAt).format('MMMM Do YYYY, h:mm')} </p>
             <button onClick={handleModal}>Delete</button>
             <button onClick={() => {
-                history.push(`/edit/${id}`)
+                history.push(`/editnote/${id}`)
             }}> Edit</button>
             <Modal
                 isOpen={openModal}

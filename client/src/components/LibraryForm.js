@@ -5,7 +5,7 @@ import moment from 'moment';
 // const now = moment().format('MMMM Do YYYY, h:mm:ss a');
 //props.noteBeforeUpdate ? moment(props.noteBeforeUpdate.createdAt) :
 
-const NoteForm = (props) => {
+const LibraryForm = (props) => {
 
 
     //local states
@@ -61,4 +61,4 @@ const NoteForm = (props) => {
 
 
 
-export default NoteForm
+export default LibraryForm

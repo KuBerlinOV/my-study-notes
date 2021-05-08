@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import Modal from 'react-modal';
 import { history } from '../routers/approuter';
+import { startRemoveLibrary } from '../actions/libraries';
 
 
-export const Library = ({ topic, description, createdAt, id, tag }) => {
+export const Library = ({ topic, description, createdAt, id, tag, startRemoveLibrary }) => {
     // const history = useHistory(); // use this instead of link to redirect to another page with params
     const [openModal, setOpenModal] = useState(false)
 
@@ -18,11 +19,10 @@ export const Library = ({ topic, description, createdAt, id, tag }) => {
             <h3> Topic: {topic} </h3>
             <p>Description: {description} </p>
             <p>Tag: {tag} </p>
-            <button onClick={() => { }}>Change status</button>
             <p>Date: {moment(createdAt).format('MMMM Do YYYY, h:mm')} </p>
             <button onClick={handleModal}>Delete</button>
             <button onClick={() => {
-                history.push(`/edit/${id}`)
+                history.push(`/editlibrary/${id}`)
             }}> Edit</button>
             <Modal
                 isOpen={openModal}
@@ -32,14 +32,16 @@ export const Library = ({ topic, description, createdAt, id, tag }) => {
             >
                 <h3>Are you sure?</h3>
                 <p>Do you really want to delete this Library? This process cannot be undone!</p>
-                <button onClick={() => { }}>Delete</button>
+                <button onClick={() => { startRemoveLibrary(id) }}>Delete</button>
             </Modal>
         </div>
     )
 }
 
-// () => { startRemoveLibrary(id) }
-// () => {
-//     startUpdateStatus(id)
-// }
-export default Library
+
+
+const mapDispatchToProps = (dispatch) => ({
+    startRemoveLibrary: (id) => dispatch(startRemoveLibrary(id)),
+})
+
+export default connect(undefined, mapDispatchToProps)(Library);
