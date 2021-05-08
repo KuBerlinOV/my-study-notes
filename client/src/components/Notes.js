@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 
 
-const Notes = (props) => {
+const Notes = () => {
 
 
     //modal manipulation

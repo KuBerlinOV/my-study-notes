@@ -4,7 +4,7 @@ import { createBrowserHistory } from 'history';
 import App from '../App';
 import About from '../components/About';
 import NotFoundPage from '../components/NotFoundPage';
-import Libraries from '../components/Libraries';
+import MyLibraries from '../components/MyLibraries';
 import Notes from '../components/Notes';
 import AddNote from '../components/AddNote';
 import EditNote from '../components/EditNote'
@@ -12,6 +12,7 @@ import LoginPage from '../components/LoginPage';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import Header from '../components/Header';
+import AddLibrary from '../components/AddLibrary';
 
 //this npm history is needed in order to be able to access the history outside of the context of this 
 //component, which is in the index.js file where we redirect users. See note in the index.js file
@@ -25,8 +26,10 @@ const AppRouter = () => {
                 <Switch>
                     <PublicRoute path='/' component={LoginPage} exact={true} />
                     <PrivateRoute path='/home' component={App} />
+                    <PrivateRoute path='/libraries' component={MyLibraries} />
                     <PrivateRoute path='/notes' component={Notes} />
                     <PrivateRoute path='/addnote' component={AddNote} />
+                    <PrivateRoute path='/addlibrary' component={AddLibrary} />
                     <PrivateRoute path='/edit/:id' component={EditNote} />
                     <Route path='/about' component={About} />
                     <Route component={NotFoundPage} />
