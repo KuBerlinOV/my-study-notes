@@ -9,7 +9,7 @@ export const AddNote = (props) => {
         <NoteForm
             handleSubmit={(note) => {
                 props.startAddNote(note);
-                props.history.push('/notes');
+                props.history.push('/libraries');
             }}
         />
     )
