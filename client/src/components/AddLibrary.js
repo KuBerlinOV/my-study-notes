@@ -9,7 +9,7 @@ export const AddLibrary = (props) => {
         <LibraryForm
             handleSubmit={(library) => {
                 props.startAddLibrary(library);
-                props.history.push('/library');
+                props.history.push('/libraries');
             }}
         />
     )

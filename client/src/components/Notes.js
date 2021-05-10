@@ -1,34 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NotesList from './NotesList'
 import NotesListFilters from './NotesListFilters';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+import { AddNote } from './AddNote';
+import Modal from 'react-modal';
+import { history } from '../routers/approuter';
+import { addNote } from '../actions/notes';
 
 
 
 
 
-const Notes = () => {
-
-
+const Notes = ({ libraryId }) => {
     //modal manipulation
-    // const [showModal, setShowModal] = useState(false)
+    const [showModal, setShowModal] = useState(false)
 
-    // const handleModal = (e) => {
-    //     e.preventDefault();
-    //     if (showModal === true) {
-    //         setShowModal(false)
-    //     } else {
-    //         setShowModal(true)
-    //     }
-    // }
+    const handleModal = () => {
+        setShowModal(!showModal);
+    }
 
     return (
         <div>
             <section>
                 <NotesListFilters />
                 <h1>My notes: </h1>
-                <button><Link to='/addnote'>Create Note</Link></button>
-                <NotesList />
+                <button onClick={handleModal}>Create Note</button>
+                <NotesList libraryId={libraryId} />
+                <Modal
+                    isOpen={showModal}
+                    ariaHideApp={false}
+                    onRequestClose={handleModal}
+                >
+                    <AddNote />
+                </Modal>
             </section>
         </div>
     )
