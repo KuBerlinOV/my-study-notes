@@ -28,11 +28,11 @@ const AppRouter = () => {
                 <Switch>
                     <PublicRoute path='/' component={LoginPage} exact={true} />
                     <PrivateRoute path='/home' component={App} />
-                    <PrivateRoute path='/libraries/library/:id/addnote' component={AddNote} />
-                    <PrivateRoute path='/libraries/library/:id' component={Library} />
+                    <PrivateRoute path='/libraries/addlibrary' component={AddLibrary} />
+                    <PrivateRoute path='/libraries/:id/addnote' component={AddNote} />
+                    <PrivateRoute exact path='/libraries/:id' component={Library} />
                     <PrivateRoute path='/libraries' component={MyLibraries} />
                     <PrivateRoute path='/notes' component={Notes} />
-                    <PrivateRoute path='/addlibrary' component={AddLibrary} />
                     <PrivateRoute path='/editnote/:id' component={EditNote} />
                     <PrivateRoute path='/editlibrary/:id' component={EditLibrary} />
                     <Route path='/about' component={About} />
