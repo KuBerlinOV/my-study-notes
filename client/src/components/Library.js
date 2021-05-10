@@ -23,26 +23,25 @@ export const Library = ({ topic, description, tag, createdAt, id, startRemoveLib
     return (
 
         <section>
-            <div onClick={handleRenderNotes}>
-                <h3> Topic: {topic} </h3>
-                <p>Description: {description} </p>
-                <p>Tag: {tag} </p>
-                <p>Date: {moment(createdAt).format('MMMM Do YYYY, h:mm')} </p>
-                <button onClick={handleModal}>Delete</button>
-                <button onClick={() => {
-                    history.push(`/editlibrary/${id}`)
-                }}> Edit</button>
-                <Modal
-                    isOpen={openModal}
-                    ariaHideApp={false}
-                    onRequestClose={handleModal}
-                    className="delete-warning"
-                >
-                    <h3>Are you sure?</h3>
-                    <p>Do you really want to delete this Library? This process cannot be undone!</p>
-                    <button onClick={() => { startRemoveLibrary(id) }}>Delete</button>
-                </Modal>
-            </div>
+            <h3> Topic: {topic} </h3>
+            <p>Description: {description} </p>
+            <p>Tag: {tag} </p>
+            <p>Date: {moment(createdAt).format('MMMM Do YYYY, h:mm')} </p>
+            <button onClick={handleModal}>Delete</button>
+            <button onClick={() => {
+                history.push(`/editlibrary/${id}`)
+            }}> Edit</button>
+            <Modal
+                isOpen={openModal}
+                ariaHideApp={false}
+                onRequestClose={handleModal}
+                className="delete-warning"
+            >
+                <h3>Are you sure?</h3>
+                <p>Do you really want to delete this Library? This process cannot be undone!</p>
+                <button onClick={() => { startRemoveLibrary(id) }}>Delete</button>
+            </Modal>
+            <button onClick={handleRenderNotes}>Open notes</button>
             { renderNotes && <Notes libraryId={id} />}
         </section>
 

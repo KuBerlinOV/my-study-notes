@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { history } from '../routers/approuter';
 import NotesList from './NotesList'
 import NotesListFilters from './NotesListFilters';
 import { Link, Route } from 'react-router-dom';
-import { AddNote } from './AddNote';
 import Modal from 'react-modal';
-import { history } from '../routers/approuter';
-import { addNote } from '../actions/notes';
+import AddNote from './AddNote';
+
 
 
 
@@ -17,6 +17,7 @@ const Notes = ({ libraryId }) => {
 
     const handleModal = () => {
         setShowModal(!showModal);
+        history.push(`/libraries/${libraryId}/addnote`)
     }
 
     return (
@@ -31,7 +32,7 @@ const Notes = ({ libraryId }) => {
                     ariaHideApp={false}
                     onRequestClose={handleModal}
                 >
-                    <AddNote />
+                    <Route exact path='/libraries/:id/addnote'><AddNote /></Route>
                 </Modal>
             </section>
         </div>
@@ -39,3 +40,4 @@ const Notes = ({ libraryId }) => {
 }
 
 export default Notes
+
