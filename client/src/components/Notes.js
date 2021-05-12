@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
+import Modal from 'react-modal';
 import { history } from '../routers/approuter';
 import NotesList from './NotesList'
 import NotesListFilters from './NotesListFilters';
-import { Link, Route } from 'react-router-dom';
-import Modal from 'react-modal';
 import AddNote from './AddNote';
 
 
@@ -11,29 +10,29 @@ import AddNote from './AddNote';
 
 
 
-const Notes = ({ libraryId }) => {
-    //modal manipulation
+const Notes = ({ libraryId, libraryTopic, renderNotes }) => {
+    //addNote modal manipulation
     const [showModal, setShowModal] = useState(false)
 
     const handleModal = () => {
         setShowModal(!showModal);
-        history.push(`/libraries/${libraryId}/addnote`)
     }
 
     return (
         <div>
             <section>
                 <NotesListFilters />
-                <h1>My notes: </h1>
+                {renderNotes === true && <h2>{libraryTopic}</h2>}
+                <h3>My notes: </h3>
                 <button onClick={handleModal}>Create Note</button>
-                <NotesList libraryId={libraryId} />
                 <Modal
                     isOpen={showModal}
                     ariaHideApp={false}
                     onRequestClose={handleModal}
                 >
-                    <Route exact path='/libraries/:id/addnote'><AddNote /></Route>
+                    <AddNote />
                 </Modal>
+                <NotesList libraryId={libraryId} />
             </section>
         </div>
     )

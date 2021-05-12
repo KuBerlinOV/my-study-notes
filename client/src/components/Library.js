@@ -17,20 +17,28 @@ export const Library = ({ topic, description, tag, createdAt, id, startRemoveLib
         setOpenModal(!openModal)
     }
     const handleRenderNotes = () => {
-        setRenderNotes(!renderNotes)
+        if (renderNotes === false) {
+            setRenderNotes(true)
+        } else {
+            setRenderNotes(false)
+        }
     }
 
     return (
 
         <section>
-            <h3> Topic: {topic} </h3>
-            <p>Description: {description} </p>
-            <p>Tag: {tag} </p>
-            <p>Date: {moment(createdAt).format('MMMM Do YYYY, h:mm')} </p>
-            <button onClick={handleModal}>Delete</button>
-            <button onClick={() => {
-                history.push(`/editlibrary/${id}`)
-            }}> Edit</button>
+            {renderNotes && <Notes renderNotes={renderNotes} libraryId={id} libraryTopic={topic} />}
+            <div id='library-info'>
+                <h3> Topic: {topic} </h3>
+                <p>Description: {description} </p>
+                <p>Tag: {tag} </p>
+                <p>Date: {moment(createdAt).format('MMMM Do YYYY, h:mm')} </p>
+
+                <button onClick={handleModal}>Delete</button>
+                <button onClick={() => {
+                    history.push(`/editlibrary/${id}`)
+                }}> Edit</button>
+            </div>
             <Modal
                 isOpen={openModal}
                 ariaHideApp={false}
@@ -42,9 +50,7 @@ export const Library = ({ topic, description, tag, createdAt, id, startRemoveLib
                 <button onClick={() => { startRemoveLibrary(id) }}>Delete</button>
             </Modal>
             <button onClick={handleRenderNotes}>Open notes</button>
-            { renderNotes && <Notes libraryId={id} />}
         </section>
-
     )
 }
 
@@ -52,7 +58,7 @@ export const Library = ({ topic, description, tag, createdAt, id, startRemoveLib
 
 const mapDispatchToProps = (dispatch) => ({
     startRemoveLibrary: (id) => dispatch(startRemoveLibrary(id)),
-})
+});
 
 
 export default connect(undefined, mapDispatchToProps)(Library);

@@ -18,7 +18,6 @@ const LibrariesList = (props) => {
                             key={library.id}
                             id={library.id}
                             {...library}
-                            showModal={props.showModal}
                         />
                     })}
 
