@@ -7,22 +7,28 @@ import { history } from '../routers/approuter';
 import { startRemoveLibrary } from '../actions/libraries';
 import Notes from './Notes';
 
-export const Library = ({ topic, description, createdAt, id, tag, startRemoveLibrary }) => {
-    const [libraryOpen, setLibraryOpen] = useState(false);
+
+export const Library = ({ topic, description, tag, createdAt, id, startRemoveLibrary }) => {
+    // const history = useHistory(); // use this instead of link to redirect to another page with params
     const [openModal, setOpenModal] = useState(false);
+    const [renderNotes, setRenderNotes] = useState(false);
     const handleModal = (e) => {
         e.preventDefault();
         setOpenModal(!openModal)
     }
-    const handLibraryOpen = () => {
-        setLibraryOpen(!libraryOpen)
+    const handleRenderNotes = () => {
+        if (renderNotes === false) {
+            setRenderNotes(true)
+        } else {
+            setRenderNotes(false)
+        }
     }
-    console.log(topic)
+
     return (
 
-        //the exact is needed so the library component would open in a new page
-        <Route exact path={`/libraries/${id}`}>
-            <div>
+        <section>
+            {renderNotes && <Notes renderNotes={renderNotes} libraryId={id} libraryTopic={topic} />}
+            <div id='library-info'>
                 <h3> Topic: {topic} </h3>
                 <p>Description: {description} </p>
                 <p>Tag: {tag} </p>
@@ -31,19 +37,19 @@ export const Library = ({ topic, description, createdAt, id, tag, startRemoveLib
                 <button onClick={() => {
                     history.push(`/editlibrary/${id}`)
                 }}> Edit</button>
-                <Modal
-                    isOpen={openModal}
-                    ariaHideApp={false}
-                    onRequestClose={handleModal}
-                    className="delete-warning"
-                >
-                    <h3>Are you sure?</h3>
-                    <p>Do you really want to delete this Library? This process cannot be undone!</p>
-                    <button onClick={() => { startRemoveLibrary(id) }}>Delete</button>
-                </Modal>
-
             </div>
-        </Route>
+            <Modal
+                isOpen={openModal}
+                ariaHideApp={false}
+                onRequestClose={handleModal}
+                className="delete-warning"
+            >
+                <h3>Are you sure?</h3>
+                <p>Do you really want to delete this Library? This process cannot be undone!</p>
+                <button onClick={() => { startRemoveLibrary(id) }}>Delete</button>
+            </Modal>
+            <button onClick={handleRenderNotes}>Open notes</button>
+        </section>
     )
 }
 
@@ -51,6 +57,7 @@ export const Library = ({ topic, description, createdAt, id, tag, startRemoveLib
 
 const mapDispatchToProps = (dispatch) => ({
     startRemoveLibrary: (id) => dispatch(startRemoveLibrary(id)),
-})
+});
+
 
 export default connect(undefined, mapDispatchToProps)(Library);

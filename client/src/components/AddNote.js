@@ -3,13 +3,17 @@ import { connect } from 'react-redux';
 import { startAddNote } from '../actions/notes';
 import NoteForm from './NoteForm';
 
+
 export const AddNote = (props) => {
 
     return (
         <NoteForm
             handleSubmit={(note) => {
                 props.startAddNote(note);
+<<<<<<< HEAD
                 props.history.push('/libraries');
+=======
+>>>>>>> destached-head
             }}
         />
     )

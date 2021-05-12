@@ -16,6 +16,7 @@ export const NotesList = (props) => {
                             key={note.id}
                             id={note.id}
                             {...note}
+                            libraryId={props.libraryId}
                             showModal={props.showModal}
                         />
 
