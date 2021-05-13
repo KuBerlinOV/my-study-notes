@@ -4,19 +4,21 @@ import { startAddNote } from '../actions/notes';
 import NoteForm from './NoteForm';
 
 
-export const AddNote = (props) => {
-
+export const AddNote = ({ libraryId, startAddNote }) => {
+    console.log(libraryId)
     return (
+
         <NoteForm
+            libraryId={libraryId}
             handleSubmit={(note) => {
-                props.startAddNote(note);
+                startAddNote(note, libraryId);
             }}
         />
     )
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    startAddNote: (note) => dispatch(startAddNote(note))
+    startAddNote: (note, libraryId) => dispatch(startAddNote(note, libraryId))
 })
 
 export default connect(undefined, mapDispatchToProps)(AddNote);

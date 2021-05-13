@@ -4,9 +4,8 @@ import LibrariesList from './LibrariesList';
 import MyLibrariesListFilters from './MyLibrariesListFilters';
 import AddLibrary from './AddLibrary';
 import PrivateRoute from '../routers/PrivateRoute';
-import Library from '../components/Library';
 
-const MyLibraries = (props) => {
+const MyLibraries = () => {
     return (
         <div>
             <h3>My Libraries</h3>

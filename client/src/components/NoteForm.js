@@ -16,6 +16,7 @@ const NoteForm = (props) => {
         reference: props.note ? props.note.reference : '',
         tag: props.note ? props.note.tag : '',
         createdAt: props.note ? props.note.createdAt : moment().format(),
+        libraryId: props.note ? props.note.libraryId : props.libraryId,
         error: ''
     });
 
@@ -28,7 +29,7 @@ const NoteForm = (props) => {
             [e.target.name]: e.target.value
         })
     }
-
+    console.log(props.libraryId)
     const handleSubmit = (e) => {
         if (!state.topic) {
             setState({ error: 'Please provide topic and description' })

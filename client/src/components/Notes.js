@@ -9,7 +9,7 @@ import AddNote from './AddNote';
 
 
 
-const Notes = ({ libraryId, libraryTopic, renderNotes }) => {
+const Notes = ({ libraryId }) => {
     //addNote modal manipulation
     const [showModal, setShowModal] = useState(false)
 
@@ -21,15 +21,14 @@ const Notes = ({ libraryId, libraryTopic, renderNotes }) => {
         <div>
             <section>
                 <NotesListFilters />
-                {renderNotes === true && <h2>{libraryTopic}</h2>}
-                <h3>My notes: </h3>
+                <h3>My notes</h3>
                 <button onClick={handleModal}>Create Note</button>
                 <Modal
                     isOpen={showModal}
                     ariaHideApp={false}
                     onRequestClose={handleModal}
                 >
-                    <AddNote />
+                    <AddNote libraryId={libraryId} />
                 </Modal>
                 <NotesList libraryId={libraryId} />
             </section>

@@ -11,6 +11,11 @@ const LibraryInfoCard = ({ topic, id, description, startRemoveLibrary }) => {
         e.preventDefault();
         setOpenModal(!openModal)
     }
+
+    const hanldleDetele = () => {
+        startRemoveLibrary(id)
+        setOpenModal(!openModal)
+    }
     return (
         <div id='lib-card' className='lib-card'>
             <div id='lib-info' className='lib-info' onClick={() => history.push(`/libraries/${id}`)}>
@@ -31,10 +36,7 @@ const LibraryInfoCard = ({ topic, id, description, startRemoveLibrary }) => {
             >
                 <h3>Are you sure?</h3>
                 <p>Do you really want to delete this Library? This process cannot be undone!</p>
-                <button onClick={() => {
-                    startRemoveLibrary(id)
-                    history.push('/libraries')
-                }}>Delete</button>
+                <button onClick={hanldleDetele}>Delete</button>
             </Modal>
         </div>
     )

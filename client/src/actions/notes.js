@@ -27,12 +27,14 @@ import { database } from '../firebase/firebase';
 // }
 
 
-export const addNote = (note) => ({
+export const addNote = (note, libraryId) => ({
     type: 'ADD_NOTE',
+    libraryId,
     note
 })
 
 export const startAddNote = ({
+    libraryId = '',
     topic = '',
     description = '',
     text = '',
@@ -44,6 +46,7 @@ export const startAddNote = ({
     return (dispatch, getState) => {
         const uid = getState().auth.uid;
         const note = {
+            libraryId,
             topic,
             description,
             text,
@@ -52,12 +55,13 @@ export const startAddNote = ({
             status,
             createdAt
         };
-        return database.ref(`users/${uid}/notes`).push(note)
+        return database.ref(`users/${uid}/libraries/${libraryId}/notes`).push(note)
             .then((ref) => {
                 //we are dispatching after pushing the note to the database 
                 dispatch(addNote(
                     {
                         id: ref.key,
+                        libraryId,
                         ...note
                     }))
             }).catch((e) => {
