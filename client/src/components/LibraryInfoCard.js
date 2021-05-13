@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 import Library from './Library';
 import { history } from '../routers/approuter';
 import Modal from 'react-modal';
 import { startRemoveLibrary } from '../actions/libraries';
 
 const LibraryInfoCard = ({ topic, id, description, startRemoveLibrary }) => {
-
+    const [openModal, setOpenModal] = useState(false);
+    const handleModal = (e) => {
+        e.preventDefault();
+        setOpenModal(!openModal)
+    }
     return (
         <div id='lib-card' className='lib-card'>
-            <div id='lib-info' className='lib-info' onClick={() => history.push(`/libraries/${library.id}`)}>
-                <h3>{library.topic}</h3>
-                <p>Description: {library.description}</p>
+            <div id='lib-info' className='lib-info' onClick={() => history.push(`/libraries/${id}`)}>
+                <h3>{topic}</h3>
+                <p>Description: {description}</p>
             </div>
             <div id='lib-card-buttons' className='lib-card-buttons'>
                 <button onClick={handleModal}>Delete</button>
                 <button onClick={() => {
-                    history.push(`/editlibrary/${library.id}`)
+                    history.push(`/editlibrary/${id}`)
                 }}> Edit</button>
             </div>
             <Modal
@@ -27,10 +32,16 @@ const LibraryInfoCard = ({ topic, id, description, startRemoveLibrary }) => {
                 <h3>Are you sure?</h3>
                 <p>Do you really want to delete this Library? This process cannot be undone!</p>
                 <button onClick={() => {
-                    props.startRemoveLibrary(library.id)
+                    startRemoveLibrary(id)
                     history.push('/libraries')
                 }}>Delete</button>
             </Modal>
         </div>
     )
 }
+
+const mapDispatchToProps = (dispatch) => ({
+    startRemoveLibrary: (id) => dispatch(startRemoveLibrary(id)),
+});
+
+export default connect(undefined, mapDispatchToProps)(LibraryInfoCard)
