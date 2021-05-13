@@ -4,12 +4,19 @@ import { connect } from 'react-redux';
 import { Route, Link } from 'react-router-dom';
 import selectLibraries from '../selectors/libraries';
 import { history } from '../routers/approuter';
-import Notes from './Notes';
-import { openLibrary } from '../actions/libraries';
+import Modal from 'react-modal';
+import { startRemoveLibrary } from '../actions/libraries';
 
 const LibrariesList = (props) => {
-
-    console.log(props.libraries)
+    const [openModal, setOpenModal] = useState(false);
+    const handleModal = (e) => {
+        e.preventDefault();
+        setOpenModal(!openModal)
+    }
+    // const hanldleDetele = (id) => {
+    //     props.startRemoveLibrary(id)
+    //     history.push('/libraries')
+    // }
     return (
         <div>
             { props.libraries.length === 0 ? (
@@ -17,9 +24,29 @@ const LibrariesList = (props) => {
             ) : (
                 <div key={"lib-list"} >
                     {props.libraries.map(library => {
-                        return <div id='lib-card' className='lib-card' onClick={() => history.push(`/libraries/${library.id}`)}>
-                            <h3>{library.topic}</h3>
-                            <p>Description: {library.description}</p>
+                        return <div>
+                            <div id='lib-card' className='lib-card' onClick={() => history.push(`/libraries/${library.id}`)}>
+                                <h3>{library.topic}</h3>
+                                <p>Description: {library.description}</p>
+                            </div>
+                            <button onClick={handleModal}>Delete</button>
+                            <button onClick={() => {
+                                history.push(`/editlibrary/${library.id}`)
+                            }}> Edit</button>
+                            <Modal
+                                isOpen={openModal}
+                                ariaHideApp={false}
+                                onRequestClose={handleModal}
+                                className="delete-warning"
+                            >
+                                <h3>Are you sure?</h3>
+                                <p>Do you really want to delete this Library? This process cannot be undone!</p>
+                                <button onClick={() => {
+                                    props.startRemoveLibrary(library.id)
+                                    history.push('/libraries')
+                                }}>Delete</button>
+                            </Modal>
+
                         </div>
                     })}
                     <Route path='/libaries/:id' component={Library} />
@@ -44,4 +71,8 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(LibrariesList)
+const mapDispatchToProps = (dispatch) => ({
+    startRemoveLibrary: (id) => dispatch(startRemoveLibrary(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LibrariesList)

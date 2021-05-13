@@ -20,30 +20,16 @@ export const Library = ({
         e.preventDefault();
         setOpenModal(!openModal)
     }
-    const hanldleDetele = () => {
-        startRemoveLibrary(library.id)
-        history.push('/libraries')
-    }
+    // const hanldleDetele = () => {
+    //     startRemoveLibrary(library.id)
+    //     history.push('/libraries')
+    // }
     return (
         <section className=''>
             <div id='library-info'>
                 <h3>{library.topic} </h3>
                 <p>Description: {library.description} </p>
-                <button onClick={handleModal}>Delete</button>
-                <button onClick={() => {
-                    history.push(`/editlibrary/${library.id}`)
-                }}> Edit</button>
             </div>
-            <Modal
-                isOpen={openModal}
-                ariaHideApp={false}
-                onRequestClose={handleModal}
-                className="delete-warning"
-            >
-                <h3>Are you sure?</h3>
-                <p>Do you really want to delete this Library? This process cannot be undone!</p>
-                <button onClick={hanldleDetele}>Delete</button>
-            </Modal>
             <Notes />
         </section>
     )
