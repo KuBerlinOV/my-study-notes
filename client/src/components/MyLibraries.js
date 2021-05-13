@@ -1,20 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import LibrariesList from './LibrariesList';
 import MyLibrariesListFilters from './MyLibrariesListFilters';
 import AddLibrary from './AddLibrary';
 import PrivateRoute from '../routers/PrivateRoute';
+import Library from '../components/Library';
 
-
-const MyLibraries = () => {
+const MyLibraries = (props) => {
     return (
         <div>
             <h3>My Libraries</h3>
             <MyLibrariesListFilters />
-            <button><Link to='/libraries/addlibrary'>Create Library</Link></button>
-            <PrivateRoute path='/libraries/addlibrary' component={AddLibrary} />
+            <button><Link to='/addlibrary'>Create Library</Link></button>
+            <PrivateRoute exact path='/libraries/addlibrary' component={AddLibrary} />
             <LibrariesList />
-
         </div>
     )
 };

@@ -10,10 +10,6 @@ export const AddNote = (props) => {
         <NoteForm
             handleSubmit={(note) => {
                 props.startAddNote(note);
-<<<<<<< HEAD
-                props.history.push('/libraries');
-=======
->>>>>>> destached-head
             }}
         />
     )

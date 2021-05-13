@@ -33,9 +33,7 @@ export const addLibrary = (library) => ({
 export const startAddLibrary = ({
     topic = '',
     description = '',
-    tag = '#',
     notes = [],
-    createdAt = 0
 } = {}) => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid;
@@ -43,8 +41,6 @@ export const startAddLibrary = ({
             topic,
             description,
             notes,
-            tag,
-            createdAt
         };
         return database.ref(`users/${uid}/libraries`).push(library)
             .then((ref) => {
@@ -98,3 +94,19 @@ export const startRemoveLibrary = (id) => {
         })
     }
 }
+
+export const openLibrary = (id) => {
+    return {
+        type: 'OPEN_LIBRARY',
+        id
+    }
+}
+
+// export const openAllLibraries = () => {
+//     return {
+//         type: 'OPEN_ALL_LIBRARIES'
+//     }
+// }
+
+
+

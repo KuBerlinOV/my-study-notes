@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import moment from 'moment';
 import Modal from 'react-modal';
 import { history } from '../routers/approuter';
@@ -8,34 +8,30 @@ import { startRemoveLibrary } from '../actions/libraries';
 import Notes from './Notes';
 
 
-export const Library = ({ topic, description, tag, createdAt, id, startRemoveLibrary }) => {
+export const Library = ({
+    startRemoveLibrary,
+    libraries,
+    match
+}) => {
     // const history = useHistory(); // use this instead of link to redirect to another page with params
+    const library = libraries.find(({ id }) => id === match.params.id)
     const [openModal, setOpenModal] = useState(false);
-    const [renderNotes, setRenderNotes] = useState(false);
     const handleModal = (e) => {
         e.preventDefault();
         setOpenModal(!openModal)
     }
-    const handleRenderNotes = () => {
-        if (renderNotes === false) {
-            setRenderNotes(true)
-        } else {
-            setRenderNotes(false)
-        }
+    const hanldleDetele = () => {
+        startRemoveLibrary(library.id)
+        history.push('/libraries')
     }
-
     return (
-
-        <section>
-            {renderNotes && <Notes renderNotes={renderNotes} libraryId={id} libraryTopic={topic} />}
+        <section className=''>
             <div id='library-info'>
-                <h3> Topic: {topic} </h3>
-                <p>Description: {description} </p>
-                <p>Tag: {tag} </p>
-                <p>Date: {moment(createdAt).format('MMMM Do YYYY, h:mm')} </p>
+                <h3>{library.topic} </h3>
+                <p>Description: {library.description} </p>
                 <button onClick={handleModal}>Delete</button>
                 <button onClick={() => {
-                    history.push(`/editlibrary/${id}`)
+                    history.push(`/editlibrary/${library.id}`)
                 }}> Edit</button>
             </div>
             <Modal
@@ -46,12 +42,14 @@ export const Library = ({ topic, description, tag, createdAt, id, startRemoveLib
             >
                 <h3>Are you sure?</h3>
                 <p>Do you really want to delete this Library? This process cannot be undone!</p>
-                <button onClick={() => { startRemoveLibrary(id) }}>Delete</button>
+                <button onClick={hanldleDetele}>Delete</button>
             </Modal>
-            <button onClick={handleRenderNotes}>Open notes</button>
+            <Notes />
         </section>
     )
 }
+
+
 
 
 
@@ -59,5 +57,8 @@ const mapDispatchToProps = (dispatch) => ({
     startRemoveLibrary: (id) => dispatch(startRemoveLibrary(id)),
 });
 
+const mapStateToProps = (state) => ({
+    libraries: state.libraries
+})
 
-export default connect(undefined, mapDispatchToProps)(Library);
+export default connect(mapStateToProps, mapDispatchToProps)(Library);

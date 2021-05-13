@@ -19,6 +19,12 @@ const librariesReducer = (state = librariesReducerDefaultState, action) => {
             });
         case 'REMOVE_LIBRARY':
             return state.filter(({ id }) => id !== action.id);
+        case 'OPEN_LIBRARY':
+            return state.map(library => {
+                if (library.id === action.id) {
+                    return library
+                }
+            })
         default:
             return state;
     }
