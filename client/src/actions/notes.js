@@ -55,7 +55,7 @@ export const startAddNote = ({
             status,
             createdAt
         };
-        return database.ref(`users/${uid}/libraries/${libraryId}/notes`).push(note)
+        return database.ref(`users/${uid}/notes`).push(note)
             .then((ref) => {
                 //we are dispatching after pushing the note to the database 
                 dispatch(addNote(

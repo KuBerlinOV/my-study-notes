@@ -33,14 +33,14 @@ export const addLibrary = (library) => ({
 export const startAddLibrary = ({
     topic = '',
     description = '',
-    notes = [],
+    tag = '#'
 } = {}) => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid;
         const library = {
             topic,
             description,
-            notes,
+            tag,
         };
         return database.ref(`users/${uid}/libraries`).push(library)
             .then((ref) => {

@@ -17,6 +17,7 @@ const LibrariesList = (props) => {
                             id={library.id}
                             topic={library.topic}
                             description={library.description}
+                            tag={library.tag}
                         />
                     })}
                     <PrivateRoute path='/libaries/:id' component={Library} />

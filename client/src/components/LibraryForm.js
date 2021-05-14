@@ -43,7 +43,7 @@ const LibraryForm = (props) => {
     return (
         <div>
             <form onSubmit={handleSubmit} data-testid="form" action="">
-                <h3>Create Note</h3>
+                <h3>Create Library</h3>
                 <h3>Topic:</h3>
                 <input type="text" placeholder="topic" name="topic" autoFocus value={state.topic || ''} onChange={handleChange} />
                 <h3>Description</h3>

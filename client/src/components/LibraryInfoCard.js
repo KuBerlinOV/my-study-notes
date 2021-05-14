@@ -5,7 +5,7 @@ import { history } from '../routers/approuter';
 import Modal from 'react-modal';
 import { startRemoveLibrary } from '../actions/libraries';
 
-const LibraryInfoCard = ({ topic, id, description, startRemoveLibrary }) => {
+const LibraryInfoCard = ({ topic, id, description, startRemoveLibrary, tag }) => {
     const [openModal, setOpenModal] = useState(false);
     const handleModal = (e) => {
         e.preventDefault();
@@ -21,6 +21,7 @@ const LibraryInfoCard = ({ topic, id, description, startRemoveLibrary }) => {
             <div id='lib-info' className='lib-info' onClick={() => history.push(`/libraries/${id}`)}>
                 <h3>{topic}</h3>
                 <p>Description: {description}</p>
+                <p>#{tag}</p>
             </div>
             <div id='lib-card-buttons' className='lib-card-buttons'>
                 <button onClick={handleModal}>Delete</button>

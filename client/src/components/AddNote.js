@@ -4,11 +4,11 @@ import { startAddNote } from '../actions/notes';
 import NoteForm from './NoteForm';
 
 
-export const AddNote = ({ libraryId, startAddNote }) => {
-    console.log(libraryId)
+export const AddNote = ({ libraryId, startAddNote, handleModal }) => {
     return (
 
         <NoteForm
+            handleModal={handleModal}
             libraryId={libraryId}
             handleSubmit={(note) => {
                 startAddNote(note, libraryId);

@@ -12,7 +12,6 @@ import AddNote from './AddNote';
 const Notes = ({ libraryId }) => {
     //addNote modal manipulation
     const [showModal, setShowModal] = useState(false)
-
     const handleModal = () => {
         setShowModal(!showModal);
     }
@@ -21,14 +20,14 @@ const Notes = ({ libraryId }) => {
         <div>
             <section>
                 <NotesListFilters />
-                <h3>My notes</h3>
+                <h3>Notes</h3>
                 <button onClick={handleModal}>Create Note</button>
                 <Modal
                     isOpen={showModal}
                     ariaHideApp={false}
                     onRequestClose={handleModal}
                 >
-                    <AddNote libraryId={libraryId} />
+                    <AddNote handleModal={handleModal} libraryId={libraryId} />
                 </Modal>
                 <NotesList libraryId={libraryId} />
             </section>

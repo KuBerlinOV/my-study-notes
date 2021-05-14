@@ -12,7 +12,9 @@ export const Library = ({
         <section className=''>
             <div id='library-info'>
                 <h3>{library.topic} </h3>
-                <p>Description: {library.description} </p>
+                <h4>Description</h4>
+                <p>{library.description}</p>
+                <p>#{library.tag} </p>
             </div>
             <Notes libraryId={match.params.id} />
         </section>
