@@ -87,26 +87,27 @@ export const removeLibrary = (id) => ({
 export const startRemoveLibrary = (id) => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid
-        return database.ref(`users/${uid}/libraries/${id}`).remove().then(() => {
-            dispatch(removeLibrary(id));
-        }).catch((e) => {
-            console.log(e, 'this did not work')
+        return database.ref(`users/${uid}/notes`).once('value').then(snapshot => {
+            snapshot.forEach((childSnapshot) => {
+                const libraryNotes = [];
+                if (childSnapshot.val().libraryId === id) {
+                    libraryNotes.push(childSnapshot.key)
+                }
+                for (let i = 0; i <= libraryNotes.length; i++) {
+                    database.ref(`users/${uid}/notes/${libraryNotes[i]}`).remove();
+                }
+            })
+        }).then(() => {
+            database.ref(`users/${uid}/libraries/${id}`).remove().then(() => {
+                dispatch(removeLibrary(id));
+            }).catch((e) => {
+                console.log(e, 'this did not work')
+            })
         })
+
     }
 }
 
-export const openLibrary = (id) => {
-    return {
-        type: 'OPEN_LIBRARY',
-        id
-    }
-}
-
-// export const openAllLibraries = () => {
-//     return {
-//         type: 'OPEN_ALL_LIBRARIES'
-//     }
-// }
 
 
 
