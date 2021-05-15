@@ -9,15 +9,17 @@ export const Library = ({
 }) => {
     const library = libraries.find(({ id }) => id === match.params.id)
     return (
-        <section className=''>
-            <div id='library-info'>
+        <div id='lib-page' className='lig-page'>
+            <div id='lib-page-info'>
                 <h3>{library.topic} </h3>
                 <h4>Description</h4>
                 <p>{library.description}</p>
                 <p>#{library.tag} </p>
             </div>
-            <Notes libraryId={match.params.id} />
-        </section>
+            <div className='lib-page-notes'>
+                <Notes libraryId={match.params.id} />
+            </div>
+        </div>
     )
 }
 

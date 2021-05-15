@@ -27,12 +27,12 @@ export const NotesListFilters = (props) => {
     }
 
     return (
-        <div>
-            <div className="search-notes">
+        <div className='notes-filters'>
+            <div className="notes-filters-search">
                 <h3>Search</h3>
                 <input type="text" value={props.filters.text} onChange={handleTextInputChange} />
             </div>
-            <div className="sort-notes" >
+            <div className="notes-filters-sort" >
                 <h3>Sort by</h3>
                 <select
                     value={props.filters.sortBy}

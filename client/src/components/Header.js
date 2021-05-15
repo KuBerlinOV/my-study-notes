@@ -6,8 +6,8 @@ import { connect } from 'react-redux';
 
 export const Header = ({ startLogout, isAuthenticated }) => (
     isAuthenticated ? (
-        <div>
-            <header id='private-hd'>
+        <div className='hd'>
+            <header id='hd-private'>
                 <NavLink activeClassName='is-active' className='nav-link' to='/home' exact={true}>Home</NavLink>
                 <NavLink activeClassName='is-active' className='nav-link' to='/libraries'>My Libraries</NavLink>
                 <NavLink activeClassName='is-active' className='nav-link' to='/notes'>Notes</NavLink>
@@ -16,8 +16,8 @@ export const Header = ({ startLogout, isAuthenticated }) => (
             </header>
         </div>
     ) : (
-        <div>
-            <header id='public-hd'>
+        <div className='hd'>
+            <header id='hd-public'>
                 <NavLink activeClassName='is-active' className='nav-link' to='/' exact={true}>Login</NavLink>
                 <NavLink activeClassName='is-active' className='nav-link' to='/about'>About</NavLink>
             </header>

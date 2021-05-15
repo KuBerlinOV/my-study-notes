@@ -17,7 +17,7 @@ const LibraryInfoCard = ({ topic, id, description, startRemoveLibrary, tag }) =>
         setOpenModal(!openModal)
     }
     return (
-        <div id='lib-card' className='lib-card'>
+        <div id='lib-info-card' className='lib-info-card'>
             <div id='lib-info' className='lib-info' onClick={() => history.push(`/libraries/${id}`)}>
                 <h3>{topic}</h3>
                 <p>Description: {description}</p>

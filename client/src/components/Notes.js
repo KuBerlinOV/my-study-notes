@@ -17,20 +17,18 @@ const Notes = ({ libraryId }) => {
     }
 
     return (
-        <div>
-            <section>
-                <NotesListFilters />
-                <h3>Notes</h3>
-                <button onClick={handleModal}>Create Note</button>
-                <Modal
-                    isOpen={showModal}
-                    ariaHideApp={false}
-                    onRequestClose={handleModal}
-                >
-                    <AddNote handleModal={handleModal} libraryId={libraryId} />
-                </Modal>
-                <NotesList libraryId={libraryId} />
-            </section>
+        <div className='notes-page'>
+            <NotesListFilters />
+            <h3>Notes</h3>
+            <button onClick={handleModal}>Create Note</button>
+            <Modal
+                isOpen={showModal}
+                ariaHideApp={false}
+                onRequestClose={handleModal}
+            >
+                <AddNote handleModal={handleModal} libraryId={libraryId} />
+            </Modal>
+            <NotesList libraryId={libraryId} />
         </div>
     )
 }

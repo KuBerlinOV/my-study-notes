@@ -5,8 +5,7 @@ function App() {
     <div id='homepage' className='homepage'>
       <div id='hp-title' className='hp-title'>
         <h1 className='hd-large'>My Study Notes</h1>
-        <p>organize your knowledge</p>
-        <p><Link to='/libraries'>Start</Link></p>
+        <p><Link to='/libraries'>Start to organize your knowledge</Link></p>
       </div>
       <div id='quote'>
 
