@@ -14,8 +14,6 @@ import Header from '../components/Header';
 import AddLibrary from '../components/AddLibrary';
 import EditLibrary from '../components/EditLibrary';
 import Library from '../components/Library';
-import AddNote from '../components/AddNote';
-import LibrariesList from '../components/LibrariesList';
 
 //this npm history is needed in order to be able to access the history outside of the context of this 
 //component, which is in the index.js file where we redirect users. See note in the index.js file

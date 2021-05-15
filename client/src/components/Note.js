@@ -28,7 +28,7 @@ export const Note = ({ topic, description, text, reference, tag, createdAt, id, 
 
     return (
         <div>
-            <h3> Topic: {topic} </h3>
+            <h3> {topic} </h3>
             <p>Description: {description} </p>
             <p>Note: {text} </p>
             <p>Reference: {reference} </p>

@@ -1,4 +1,5 @@
 import { database } from '../firebase/firebase';
+import { removeNote } from '../actions/notes';
 
 export const setLibraries = (libraries) => ({
     type: 'SET_LIBRARIES',
@@ -94,7 +95,9 @@ export const startRemoveLibrary = (id) => {
                     libraryNotes.push(childSnapshot.key)
                 }
                 for (let i = 0; i <= libraryNotes.length; i++) {
-                    database.ref(`users/${uid}/notes/${libraryNotes[i]}`).remove();
+                    database.ref(`users/${uid}/notes/${libraryNotes[i]}`).remove().then(() => {
+                        dispatch(removeNote(libraryNotes[i]))
+                    });
                 }
             })
         }).then(() => {

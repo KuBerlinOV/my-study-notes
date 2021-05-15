@@ -18,10 +18,11 @@ const LibrariesList = (props) => {
                         description={library.description}
                         tag={library.tag}
                     />
-                }),
-                <PrivateRoute path='/libaries/:id' component={Library} />
+                })
+
 
             )}
+            <PrivateRoute path='/libaries/:id' component={Library} />
         </div>
     )
 }

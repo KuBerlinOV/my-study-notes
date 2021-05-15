@@ -19,8 +19,8 @@ const Notes = ({ libraryId }) => {
     return (
         <div className='notes-page'>
             <NotesListFilters />
-            <h3>Notes</h3>
-            <button onClick={handleModal}>Create Note</button>
+            <h3>My Notes</h3>
+            {libraryId && <button onClick={handleModal}>Create Note</button>}
             <Modal
                 isOpen={showModal}
                 ariaHideApp={false}

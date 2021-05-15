@@ -10,7 +10,7 @@ export const Header = ({ startLogout, isAuthenticated }) => (
             <header id='hd-private'>
                 <NavLink activeClassName='is-active' className='nav-link' to='/home' exact={true}>Home</NavLink>
                 <NavLink activeClassName='is-active' className='nav-link' to='/libraries'>My Libraries</NavLink>
-                <NavLink activeClassName='is-active' className='nav-link' to='/notes'>Notes</NavLink>
+                <NavLink activeClassName='is-active' className='nav-link' to='/notes'>All Notes</NavLink>
                 <NavLink activeClassName='is-active' className='nav-link' to='/about'>About</NavLink>
                 <button onClick={startLogout} >Logout</button>
             </header>
