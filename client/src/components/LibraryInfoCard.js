@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import moment from 'moment';
 import { connect } from 'react-redux';
-import Library from './Library';
 import { history } from '../routers/approuter';
 import Modal from 'react-modal';
 import { startRemoveLibrary } from '../actions/libraries';
 
-const LibraryInfoCard = ({ topic, id, description, startRemoveLibrary, tag }) => {
+const LibraryInfoCard = ({ topic, id, description, startRemoveLibrary, tag, createdAt }) => {
+    // const lastNoteCreated = notes.map((note, index) => { if (note.libraryId === id) return note.createdAt }
+    // console.log(lastNoteCreated)
     const [openModal, setOpenModal] = useState(false);
     const handleModal = (e) => {
         e.preventDefault();
         setOpenModal(!openModal)
     }
-
     const hanldleDetele = () => {
         startRemoveLibrary(id)
         setOpenModal(!openModal)
@@ -22,6 +23,7 @@ const LibraryInfoCard = ({ topic, id, description, startRemoveLibrary, tag }) =>
                 <h3>{topic}</h3>
                 <p>Description: {description}</p>
                 <p>#{tag}</p>
+                <p>{moment(createdAt).format('MMMM Do YYYY, h:mm')}</p>
             </div>
             <div id='lib-card-buttons' className='lib-card-buttons'>
                 <button onClick={handleModal}>Delete</button>
@@ -43,8 +45,12 @@ const LibraryInfoCard = ({ topic, id, description, startRemoveLibrary, tag }) =>
     )
 }
 
+const mapStateToProps = (state) => ({
+    notes: state.notes
+})
 const mapDispatchToProps = (dispatch) => ({
     startRemoveLibrary: (id) => dispatch(startRemoveLibrary(id)),
 });
 
-export default connect(undefined, mapDispatchToProps)(LibraryInfoCard)
+
+export default connect(mapStateToProps, mapDispatchToProps)(LibraryInfoCard)

@@ -17,6 +17,7 @@ const LibrariesList = (props) => {
                         topic={library.topic}
                         description={library.description}
                         tag={library.tag}
+                        createdAt={library.createdAt}
                     />
                 })
 

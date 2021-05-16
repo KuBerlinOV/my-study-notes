@@ -29,7 +29,6 @@ const NoteForm = (props) => {
             [e.target.name]: e.target.value
         })
     }
-    console.log(props.libraryId)
     const handleSubmit = (e) => {
         if (!state.topic) {
             setState({ error: 'Please provide topic and description' })
@@ -39,7 +38,9 @@ const NoteForm = (props) => {
             //This local state then passed with the props
             // to notes component where the action 'ADD_NOTE' is dispatched with this local state of the noteform
             props.handleSubmit(state)
-            props.handleModal()
+            if (props.handleModal) {
+                return props.handleModal()
+            }
         }
         e.preventDefault();
     }

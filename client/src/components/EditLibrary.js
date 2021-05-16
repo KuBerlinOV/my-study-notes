@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LibraryForm from './LibraryForm';
 import { startUpdateLibrary } from '../actions/libraries';
+import { history } from '../routers/approuter';
 
 
 export const EditLibrary = (props) => {
@@ -15,7 +16,7 @@ export const EditLibrary = (props) => {
                     //dispatch action to edit the expense
                     props.startUpdateLibrary(props.library.id, library);
                     //redirect to dashBoard
-                    props.history.push('/libraries')
+                    history.push('/libraries')
                 }}
             />
         </div>

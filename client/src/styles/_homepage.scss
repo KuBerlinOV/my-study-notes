@@ -29,6 +29,7 @@ div{
                 &:hover{
                     border-color: $secondary-color;
                     color: $secondary-color;
+                    cursor: pointer;
                 }
         }
     }

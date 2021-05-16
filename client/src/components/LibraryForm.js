@@ -22,7 +22,6 @@ const LibraryForm = (props) => {
         setState({
             ...state,
             //this is the name of the element that we are targeting, depending on which input element
-            //
             [e.target.name]: e.target.value
         })
     }

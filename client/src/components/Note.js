@@ -37,7 +37,7 @@ export const Note = ({ topic, description, text, reference, tag, createdAt, id, 
             <button onClick={() => {
                 startUpdateStatus(id)
             }}>Change status</button>
-            <p>Date: {moment(createdAt).format('MMMM Do YYYY, h:mm')} </p>
+            <p>{moment(createdAt).format('MMMM Do YYYY, h:mm')} </p>
             <button onClick={handleModal}>Delete</button>
             <button onClick={() => {
                 history.push(`/editnote/${id}`)

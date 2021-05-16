@@ -6,16 +6,16 @@
         background-color: $primary-color;
         color: $background-color-secondary;
         border: none;
-        width: 6em;
-        height: 1.8em;
+        padding: 0.3rem;
         border-radius: 0.4em;
-        font-size: 1rem;
+        font-size: 0.8rem;
         font-weight: 600;
         transition: color 0.25s, border-color 0.25s;
         background-color:$primary-color;
             &:hover{
                 border-color: $secondary-color;
                 color: $secondary-color;
+                cursor: pointer;
             }
     }
     header{

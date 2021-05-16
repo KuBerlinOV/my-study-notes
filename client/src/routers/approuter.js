@@ -28,11 +28,11 @@ const AppRouter = () => {
                     <PublicRoute path='/' component={LoginPage} exact={true} />
                     <PrivateRoute path='/home' component={App} />
                     <PrivateRoute path='/notes' component={Notes} />
-                    <PrivateRoute path='/libraries/:id' component={Library} />
+                    <PrivateRoute exact path='/libraries/:id' component={Library} />
+                    <PrivateRoute exact path='/editlibrary/:id' component={EditLibrary} />
                     <PrivateRoute exact path='/libraries' component={MyLibraries} />
                     <PrivateRoute path='/addlibrary' component={AddLibrary} />
-                    <PrivateRoute path='/editnote/:id' component={EditNote} />
-                    <PrivateRoute path='/editlibrary/:id' component={EditLibrary} />
+                    <PrivateRoute exact path='/editnote/:id' component={EditNote} />
                     <Route path='/about' component={About} />
                     <Route component={NotFoundPage} />
                 </Switch>
