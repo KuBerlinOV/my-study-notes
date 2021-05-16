@@ -12,14 +12,25 @@ div{
                 letter-spacing: 0.1em;
                 font-weight: 900;
             }
-            .h-subtitle{
+            .start-btn{
                 text-decoration: none;
+                font-size: 1.1rem;
+                text-align: center;
+                width: 10em;
+                height: 2em;
                 color: $third-color;
                 background-color: $primary-color;
-                padding: 0.5em;
+                padding: 0.4em 0 0 0;
                 border-radius: 0.4em;
                 font-weight: 600;
-            }
+                border: none;
+                transition: color 0.25s, border-color 0.25s;
+                background-color:$primary-color;
+                &:hover{
+                    border-color: $secondary-color;
+                    color: $secondary-color;
+                }
         }
+    }
     }
 }

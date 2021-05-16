@@ -12,7 +12,7 @@ export const Header = ({ startLogout, isAuthenticated }) => (
                 <NavLink activeClassName='is-active' className='nav-link' to='/libraries'>My Libraries</NavLink>
                 <NavLink activeClassName='is-active' className='nav-link' to='/notes'>All Notes</NavLink>
                 <NavLink activeClassName='is-active' className='nav-link' to='/about'>About</NavLink>
-                <button onClick={startLogout} >Logout</button>
+                <button className='logout-btn' onClick={startLogout} >Logout</button>
             </header>
         </div>
     ) : (

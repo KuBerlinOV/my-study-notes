@@ -1,13 +1,18 @@
 @import './config';
 @import './header';
 @import './homepage';
+@import './loginpage';
 
 *{
     box-sizing: border-box;
-    overflow: auto;
+    overflow: hidden;
 }
 
 body{
+    .hide{
+        display: none;
+    }
+    
     font-family: $main-font;
     font-size: 12px;
     color: $primary-color;
@@ -36,22 +41,6 @@ body{
 
 
 
-// div{
-//     background-color: black;
-//     color: white;
-// }
 
-// .nav-link{
-//     color: white;
-// }
-// .delete-warning{
-//     background-color: black;
-//     color: white;
-// }
-p{
-    color: black
-}
 
-.hide{
-    display: none;
-}
+

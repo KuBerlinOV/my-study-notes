@@ -2,10 +2,27 @@
 
 .hd{
     background: $background-color-secondary;
+    .logout-btn{
+        background-color: $primary-color;
+        color: $background-color-secondary;
+        border: none;
+        width: 6em;
+        height: 1.8em;
+        border-radius: 0.4em;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: color 0.25s, border-color 0.25s;
+        background-color:$primary-color;
+            &:hover{
+                border-color: $secondary-color;
+                color: $secondary-color;
+            }
+    }
     header{
-        margin: 0 9rem 0 9rem;
+        margin: 0 17rem 0 17rem;
         font-size: 1.6em;
         font-weight: 800;
+        overflow: hidden;
         &#hd-private{
             display: flex;
             flex-direction: row;
