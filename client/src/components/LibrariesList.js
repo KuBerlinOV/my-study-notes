@@ -4,11 +4,12 @@ import { connect } from 'react-redux';
 import PrivateRoute from '../routers/PrivateRoute';
 import selectLibraries from '../selectors/libraries';
 import LibraryInfoCard from './LibraryInfoCard';
+import { Grid } from '@material-ui/core';
 
 const LibrariesList = (props) => {
     return (
-        <div id='lib-list' className='lib-list'>
-            { props.libraries.length === 0 ? (
+        <Grid>
+            {props.libraries.length === 0 ? (
                 <p>Create your first library and organize your study</p>
             ) : (
                 props.libraries.map(library => {
@@ -24,7 +25,7 @@ const LibrariesList = (props) => {
 
             )}
             <PrivateRoute path='/libaries/:id' component={Library} />
-        </div>
+        </Grid>
     )
 }
 

@@ -7,8 +7,8 @@ import PrivateRoute from '../routers/PrivateRoute';
 
 const MyLibraries = () => {
     return (
-        <div>
-            <h3>My Libraries</h3>
+        <div className='lib'>
+            <h1 className='hd-lg'>My Libraries</h1>
             <MyLibrariesListFilters />
             <button><Link to='/addlibrary'>Create Library</Link></button>
             <PrivateRoute exact path='/libraries/addlibrary' component={AddLibrary} />

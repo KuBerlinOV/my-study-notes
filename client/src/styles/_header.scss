@@ -1,12 +1,12 @@
 
 
-.hd{
+div.menu{
     background: $background-color-secondary;
     .logout-btn{
         background-color: $primary-color;
         color: $background-color-secondary;
         border: none;
-        padding: 0.3rem;
+        padding: 0.4rem;
         border-radius: 0.4em;
         font-size: 0.8rem;
         font-weight: 600;
@@ -18,12 +18,11 @@
                 cursor: pointer;
             }
     }
-    header{
-        margin: 0 17rem 0 17rem;
-        font-size: 1.6em;
-        font-weight: 800;
-        overflow: hidden;
-        &#hd-private{
+        .menu-nav{
+            margin: 0 17rem 0 17rem;
+            font-size: 1.6em;
+            font-weight: 800;
+            overflow: hidden;
             display: flex;
             flex-direction: row;
             justify-content: space-around;
@@ -37,7 +36,7 @@
                 }
             }
         }
-        &#hd-public{
+        .menu-nav-public{
             margin: 0 6rem 0 0;
             display: flex;
             flex-direction: row;
@@ -53,6 +52,5 @@
                 }
             }
         }
-    }
 }
 

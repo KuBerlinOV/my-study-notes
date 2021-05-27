@@ -1,0 +1,46 @@
+.lib{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    width: 100%;
+    height: auto;
+    .hd-lg{
+        font-size: 2.5em;
+    }
+    .lib-list{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        flex-wrap: wrap;
+        overflow: auto;
+        #lib-card{
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            color: $primary-color;
+            background-color: $background-color-secondary;
+            width: 16em;
+            padding: 1em;
+            height: 20em;
+            margin: 1em;
+            border-radius: 1em;
+            .lib-info{
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+            }
+            p{
+             margin: 0.2em;   
+             height: auto;
+            }
+        }
+    }
+}

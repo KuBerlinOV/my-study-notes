@@ -2,6 +2,7 @@
 @import './header';
 @import './homepage';
 @import './loginpage';
+@import './mylibraries';
 
 *{
     box-sizing: border-box;
@@ -23,7 +24,8 @@ body{
         background: $background-image;
         background-attachment: fixed;
         background-position: center;
-        background-size: contain;
+        background-size: cover;
+        background-repeat: no-repeat;
         &::after{
             content: "";
             position: fixed;
@@ -37,7 +39,17 @@ body{
             background-size: cover;
     }
     }
+    //heading small
+    .hd-sm{
+        font-size: 1.2em;
+    }
+    //heading medium
+    .hd-md{
+        font-size: 1.4em;
+    }
 }
+
+@import './mobile';
 
 
 

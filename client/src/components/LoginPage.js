@@ -12,7 +12,7 @@ export const LoginPage = ({ startLogin }) => {
     }
     return (
         <div className='login-page'>
-            <h1 className='h-lg'>My Study Notes</h1>
+            <h1 className='hd-lg'>My Study Notes</h1>
             <button className='start-btn' onClick={handleModal}>Start organizing your studies</button>
             <Modal
                 className={'login-box'}
