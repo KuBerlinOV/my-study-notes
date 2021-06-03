@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 import { history } from '../routers/approuter';
 import Modal from 'react-modal';
 import { startRemoveLibrary } from '../actions/libraries';
-import { Card, Button } from '@material-ui/core';
+import { Button } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
+import UpdateIcon from '@material-ui/icons/Update';
+import BookIcon from '@material-ui/icons/Book';
 
 const LibraryInfoCard = ({ topic, id, description, startRemoveLibrary, tag, createdAt }) => {
     // const lastNoteCreated = notes.map((note, index) => { if (note.libraryId === id) return note.createdAt }
@@ -19,33 +22,35 @@ const LibraryInfoCard = ({ topic, id, description, startRemoveLibrary, tag, crea
         setOpenModal(!openModal)
     }
     return (
-        <Card>
-            <div id='lib-card' className='lib-card'>
-                <div id='lib-info' className='lib-info' onClick={() => history.push(`/libraries/${id}`)}>
-                    <h2 className='hd-md'>{topic}</h2>
-                    <h3 className='hd-sm'>About</h3>
-                    <p>{description}</p>
-                    <p>#{tag}</p>
-                    <p>{moment(createdAt).format('MMMM Do YYYY, h:mm')}</p>
-                </div>
-                <div id='lib-card-buttons' className='lib-card-buttons'>
-                    <button onClick={handleModal}>Delete</button>
-                    <button onClick={() => {
-                        history.push(`/editlibrary/${id}`)
-                    }}> Edit</button>
-                </div>
-                <Modal
-                    isOpen={openModal}
-                    ariaHideApp={false}
-                    onRequestClose={handleModal}
-                    className="delete-warning"
-                >
-                    <h3>Are you sure?</h3>
-                    <p>Do you really want to delete this Library? This process cannot be undone!</p>
-                    <button onClick={hanldleDetele}>Delete</button>
-                </Modal>
+        <div className='lib-card'>
+            <div className='lib-card-info' onClick={() => history.push(`/libraries/${id}`)}>
+                <BookIcon />
+                <h2 className='hd-md'>{topic}</h2>
+                <hr />
+                <p className='hd-sm'>About:</p>
+                <p className='card-p'>{description}</p>
+                <hr />
+                <p>#{tag}</p>
+                <p>{moment(createdAt).format('MMMM Do YYYY, h:mm')}</p>
             </div>
-        </Card>
+            <hr />
+            <div className='lib-card-btn'>
+                <Button className='btn-sm' size='small' onClick={handleModal}><DeleteIcon />Delete</Button>
+                <Button className='btn-sm' size='small' onClick={() => {
+                    history.push(`/editlibrary/${id}`)
+                }}><UpdateIcon /> Edit</Button>
+            </div>
+            <Modal
+                isOpen={openModal}
+                ariaHideApp={false}
+                onRequestClose={handleModal}
+                className="delete-warning"
+            >
+                <h3>Are you sure?</h3>
+                <p>Do you really want to delete this Library? This process cannot be undone!</p>
+                <button onClick={hanldleDetele}>Delete</button>
+            </Modal>
+        </div>
     )
 }
 
@@ -58,3 +63,6 @@ const mapDispatchToProps = (dispatch) => ({
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(LibraryInfoCard)
+
+
+// onClick={() => history.push(`/libraries/${id}`)}

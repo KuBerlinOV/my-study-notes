@@ -30,7 +30,20 @@ div.menu{
     }
     
 }
-
+main{
+    &#lib{
+       .lib-top{
+           height: 20vh;
+           .lib-filters{
+               flex-direction: column;
+               margin: 0;   
+           }
+       }
+       .lib-btm{
+           margin-top: 10em;
+       }
+    }
+}
 };
 
 //Smarthphones
@@ -89,12 +102,12 @@ div.menu{
         width: 100%;
         opacity: 0.9;
         font-size: 3em;
-        margin: 0;
         z-index: 1;
+        margin: 0;
         padding: 0;
         background: darken($color: $background-color, $amount: 5);
         list-style: none;
-        transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -200%, 0);
         @include easeOutIn;
 
 
@@ -182,6 +195,24 @@ div{
     margin-top: 20vh;
     .start-btn{
         font-size: 0.95em;
+    }
+}
+main{
+    &#lib{
+    .lib-btm{
+            .lib-list{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-self: center;
+            }
+    }
+       .lib-top{
+           height: 8vh;
+           .lib-filters{
+               flex-direction: column;
+           }
+       }
     }
 }
 

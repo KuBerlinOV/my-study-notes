@@ -6,10 +6,13 @@
 
 *{
     box-sizing: border-box;
-    overflow: auto;
 }
 
 body{
+    .main-approuter{
+        height: 100vh;
+        width: 100%;
+    }
     .hide{
         display: none;
     }
@@ -41,11 +44,11 @@ body{
     }
     //heading small
     .hd-sm{
-        font-size: 1.2em;
+        font-size: 1.3em;
     }
     //heading medium
     .hd-md{
-        font-size: 1.4em;
+        font-size: 1.8em;
     }
 }
 
