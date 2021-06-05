@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { setEndDate, setStartDate, setTextFilter, sortByDate, sortByStatus } from '../actions/filters';
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
+import { Button } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
 
 export const MyLibrariesListFilters = (props) => {
     const [calendarFocused, setCalendarFocused] = useState(null)
@@ -23,12 +25,13 @@ export const MyLibrariesListFilters = (props) => {
 
     return (
         <div className='lib-filters'>
+            <Button onClick={props.handleFilters} className='btn btn-close'><CloseIcon /></Button>
             <div className="search-libraries">
-                <h3>Search:</h3>
+                <h3 className='hd-sm' >Search:</h3>
                 <input className='text-input' type="text" value={props.filters.text} onChange={handleTextInputChange} />
             </div>
             <div className="sort-notes" >
-                <h3>Filter by date:</h3>
+                <h3 className='hd-sm'>Filter by date:</h3>
                 <DateRangePicker
                     startDate={props.filters.startDate}
                     endDate={props.filters.endDate}

@@ -40,9 +40,11 @@ const MyLibraries = () => {
                     <ExpandMoreIcon />
         Show filters
         </Button>
-                {showFilters && <MyLibrariesListFilters />}
             </div>
-            <div className='lib-btm'>
+            {showFilters && <MyLibrariesListFilters
+                handleFilters={handleFilters}
+            />}
+            <div className='lib-ls'>
                 <LibrariesList />
             </div>
             <PrivateRoute exact path='/libraries/addlibrary' component={AddLibrary} />

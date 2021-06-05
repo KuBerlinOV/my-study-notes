@@ -7,7 +7,7 @@ import LibraryInfoCard from './LibraryInfoCard';
 
 const LibrariesList = (props) => {
     return (
-        <div className='lib-list'>
+        <div className='lib-ls'>
             {
                 props.libraries.length === 0 ? (
                     <p>Create your first library and organize your study</p>
