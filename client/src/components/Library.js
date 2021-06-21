@@ -13,9 +13,7 @@ export const Library = ({
             <div id='lib-page-info'>
                 <h3>{library.topic} </h3>
             </div>
-            <div className='lib-page-notes'>
-                <Notes libraryId={match.params.id} />
-            </div>
+            <Notes libraryId={match.params.id} />
         </div>
     )
 }

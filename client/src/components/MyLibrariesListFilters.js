@@ -4,7 +4,7 @@ import { setEndDate, setStartDate, setTextFilter, sortByDate, sortByStatus } fro
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
 import { Button } from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 export const MyLibrariesListFilters = (props) => {
     const [calendarFocused, setCalendarFocused] = useState(null)
@@ -25,7 +25,6 @@ export const MyLibrariesListFilters = (props) => {
 
     return (
         <div className='lib-filters'>
-            <Button onClick={props.handleFilters} className='btn btn-close'><CloseIcon /></Button>
             <div className="search-libraries">
                 <h3 className='hd-sm' >Search:</h3>
                 <input className='text-input' type="text" value={props.filters.text} onChange={handleTextInputChange} />
@@ -45,6 +44,7 @@ export const MyLibrariesListFilters = (props) => {
                     endDateId="endDateId"
                 />
             </div>
+            <Button onClick={props.handleFilters} className='btn btn-close'>Close<CancelIcon /></Button>
         </div>
     )
 }

@@ -30,11 +30,11 @@ export const NotesListFilters = (props) => {
         <div className='notes-filters'>
             <div className="notes-filters-search">
                 <h3>Search</h3>
-                <input type="text" value={props.filters.text} onChange={handleTextInputChange} />
+                <input type="text" className='text-input' value={props.filters.text} onChange={handleTextInputChange} />
             </div>
-            <div className="notes-filters-sort" >
+            <div className='filters-sort' >
                 <h3>Sort by</h3>
-                <select
+                <select className="notes-sort"
                     value={props.filters.sortBy}
                     onChange={handleStatusChange}>
                     <option value="status">Status</option>

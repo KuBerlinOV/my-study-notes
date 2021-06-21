@@ -24,7 +24,7 @@ const MyLibraries = () => {
         return size
     }
     const [height, width] = useWindowSize()
-    const [showFilters, setShowFilters] = useState(true);
+    const [showFilters, setShowFilters] = useState(false);
     const handleFilters = () => {
         setShowFilters(!showFilters)
     }
@@ -32,21 +32,23 @@ const MyLibraries = () => {
         <main id='lib'>
             <div className='lib-top'>
                 <h1 className='hd-lg'>My Libraries</h1>
-                <Button className='btn-lg' onClick={() => { history.push('/addlibrary') }}>
-                    <AddBoxIcon />
-            Create Library
-            </Button>
-                <Button className='btn-lg' onClick={handleFilters}>
-                    <ExpandMoreIcon />
-        Show filters
-        </Button>
+                <div className='lib-btns'>
+                    <Button className='btn-lg' onClick={() => { history.push('/addlibrary') }}>
+                        <AddBoxIcon />
+                        New Library
+                    </Button>
+                    <Button className='btn-lg' onClick={handleFilters}>
+                        <ExpandMoreIcon />
+                        Filters
+                    </Button>
+                </div>
             </div>
             {showFilters && <MyLibrariesListFilters
                 handleFilters={handleFilters}
             />}
-            <div className='lib-ls'>
-                <LibrariesList />
-            </div>
+
+            <LibrariesList />
+
             <PrivateRoute exact path='/libraries/addlibrary' component={AddLibrary} />
         </main>
     )

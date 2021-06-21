@@ -3,9 +3,11 @@
 @import './homepage';
 @import './loginpage';
 @import './mylibraries';
+@import './notes';
 
 *{
     box-sizing: border-box;
+    margin: 0;
 }
 
 body{

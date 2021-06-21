@@ -50,13 +50,14 @@ main{
 
 @include mediaSm {
 div.menu{
-    background: none;
+    z-index: 100;
     //menu buttons responsive
     .logout-btn{
         font-size: 0.8em;
     }
     
     .menu-btn{
+        z-index: 200;
         position:fixed;
         z-index: 150;
         right: 1.1em;
@@ -93,7 +94,6 @@ div.menu{
     //It has too much uncesseary repetitions
     //menu navbar responsive
     .menu-nav{
-        background: none;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -103,7 +103,7 @@ div.menu{
         width: 100%;
         opacity: 0.9;
         font-size: 3em;
-        z-index: 130;
+        z-index: 100;
         margin: 0;
         padding: 0;
         background: darken($color: $background-color, $amount: 5);
@@ -119,7 +119,7 @@ div.menu{
     }
     //menu when not authenticated
     .menu-nav-public{
-        background: none;
+        background: rgba(white, $background-opacity);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -129,7 +129,7 @@ div.menu{
         opacity: 0.9;
         font-size: 3em;
         margin: 0;
-        z-index: 1;
+        z-index: 100;
         padding: 0;
         background: darken($color: $background-color, $amount: 5);
         list-style: none;
@@ -201,35 +201,46 @@ div{
 main{
     &#lib{
        .lib-top{
-           z-index: 100;
+           z-index: 60;
            overflow: hidden;
-           height: 23vh;
+           height: auto;
            position: fixed;
-           background: rgba($background-color, $background-opacity);
+           top: 0;
+           background: rgba($background-color, 0.6);
            .hd-lg{
                margin: 0.4em;
            }
            .btn-lg{
                margin: 0.3em 0;
            }
+           .lib-btns{
+               width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            .btn-lg{
+                width: 10em;
+                font-size: 1.2em;
+            }
+           }
           
        }
        .lib-filters{
-        text-align: center;
         flex-direction: column;
         position: fixed;
-        height: 26vh;
+        height: auto;
         width: 80%;
-        margin-top: 3.5em;
-        z-index: 150;
-        background-color: rgba($background-color, $background-opacity);
+        top: 0em;
+        z-index: 71;
+        background: rgba($background-color, 0.6);
         .hd-sm{
             margin: 0;
         }
 
         .btn-close{
             color: white;
-            position: relative;
+            position: absolute;
+
         }
         .text-input{
             height: 47.3px;
@@ -243,7 +254,9 @@ main{
         flex-direction: column;
         align-items: center;
         justify-self: center;
-        margin-top: 17vh;
+        top: 35vh;
+        z-index: 30;
+        padding: 0;
     }
   }
   }
