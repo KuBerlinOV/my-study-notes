@@ -7,40 +7,35 @@ import selectNotes from '../selectors/notes';
 export const NotesList = (props) => {
     if (!props.libraryId) {
         return (
-            <div>
+            <div className='notes-list'>
                 {props.notes.map(note => {
 
-                    return <div className='note-card'><Note
+                    return <Note
                         key={note.id}
                         id={note.id}
                         {...note}
                         showModal={props.showModal}
                         libraryId={props.libraryId}
-                    />
-
-                    </div> //<- {...note} this is spreading the note objects with all their key/value pairs and return from the state into the props.
+                    /> //<- {...note} this is spreading the note objects with all their key/value pairs and return from the state into the props.
                 })}
             </div>
         )
     } else {
         return (
-            <div>
-                <ul key={"noteid"} >
-                    {props.notes.map(note => {
-                        if (note.libraryId === props.libraryId) {
-                            return <li><Note
-                                key={note.id}
-                                id={note.id}
-                                {...note}
-                                showModal={props.showModal}
-                                libraryId={props.libraryId}
-                            />
+            <div className='notes-list'>
+                {props.notes.map(note => {
+                    if (note.libraryId === props.libraryId) {
+                        return <div className='note-card'><Note
+                            key={note.id}
+                            id={note.id}
+                            {...note}
+                            showModal={props.showModal}
+                            libraryId={props.libraryId}
+                        />
 
-                            </li> //<- {...note} this is spreading the note objects with all their key/value pairs and return from the state into the props.
-                        }
-                    })}
-
-                </ul>
+                        </div> //<- {...note} this is spreading the note objects with all their key/value pairs and return from the state into the props.
+                    }
+                })}
             </div>
         )
     }

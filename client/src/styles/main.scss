@@ -2,13 +2,19 @@
 @import './header';
 @import './homepage';
 @import './loginpage';
+@import './mylibraries';
+@import './notes';
 
 *{
     box-sizing: border-box;
-    overflow: auto;
+    margin: 0;
 }
 
 body{
+    .main-approuter{
+        height: 100vh;
+        width: 100%;
+    }
     .hide{
         display: none;
     }
@@ -23,7 +29,8 @@ body{
         background: $background-image;
         background-attachment: fixed;
         background-position: center;
-        background-size: contain;
+        background-size: cover;
+        background-repeat: no-repeat;
         &::after{
             content: "";
             position: fixed;
@@ -37,7 +44,17 @@ body{
             background-size: cover;
     }
     }
+    //heading small
+    .hd-sm{
+        font-size: 1.3em;
+    }
+    //heading medium
+    .hd-md{
+        font-size: 1.8em;
+    }
 }
+
+@import './mobile';
 
 
 

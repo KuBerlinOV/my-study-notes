@@ -11,7 +11,6 @@ const NoteForm = (props) => {
     //local states
     const [state, setState] = useState({
         topic: props.note ? props.note.topic : '',
-        description: props.note ? props.note.description : '',
         text: props.note ? props.note.text : '',
         reference: props.note ? props.note.reference : '',
         tag: props.note ? props.note.tag : '',
@@ -51,8 +50,6 @@ const NoteForm = (props) => {
                 <h3>Create Note</h3>
                 <h3>Topic:</h3>
                 <input type="text" placeholder="topic" name="topic" autoFocus value={state.topic || ''} onChange={handleChange} />
-                <h3>Description</h3>
-                <input type="text" placeholder="description" name="description" id="" value={state.description || ''} onChange={handleChange} />
                 <h3>Note</h3>
                 <textarea placeholder="write your note here" name="text" id="" cols="30" rows="10" value={state.text || ''} onChange={handleChange} ></textarea>
                 <h3>Reference</h3>

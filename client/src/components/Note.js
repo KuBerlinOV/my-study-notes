@@ -27,21 +27,27 @@ export const Note = ({ topic, description, text, reference, tag, createdAt, id, 
 
 
     return (
-        <div>
-            <h3> {topic} </h3>
-            <p>Description: {description} </p>
-            <p>Note: {text} </p>
-            <p>Reference: {reference} </p>
-            <p>Tag: {tag} </p>
-            <p>Status: {status}</p>
-            <button onClick={() => {
-                startUpdateStatus(id)
-            }}>Change status</button>
-            <p>{moment(createdAt).format('MMMM Do YYYY, h:mm')} </p>
-            <button onClick={handleModal}>Delete</button>
-            <button onClick={() => {
-                history.push(`/editnote/${id}`)
-            }}> Edit</button>
+        <div className='note-card'>
+            <h2 className='hd-md'> {topic} </h2>
+            <hr />
+            <div className='note-card-info'>
+                <p className='info-text' id='note-text'>{text} </p>
+                <hr />
+                <p className='info-text'>Reference: {reference} </p>
+                <p className='info-text'>Tag: {tag} </p>
+                <p className='info-text'>Status: {status}</p>
+                <p className='info-text'>{moment(createdAt).format('MMMM Do YYYY, h:mm')} </p>
+            </div>
+            <hr />
+            <div className='note-card-btn'>
+                <button onClick={() => {
+                    startUpdateStatus(id)
+                }}>Change status</button>
+                <button onClick={handleModal}>Delete</button>
+                <button onClick={() => {
+                    history.push(`/editnote/${id}`)
+                }}> Edit</button>
+            </div>
             <Modal
                 isOpen={openModal}
                 ariaHideApp={false}
@@ -50,9 +56,10 @@ export const Note = ({ topic, description, text, reference, tag, createdAt, id, 
             >
                 <h3>Are you sure?</h3>
                 <p>Do you really want to delete this note? This process cannot be undone!</p>
+
                 <button onClick={() => { startRemoveNote(id) }}>Delete</button>
             </Modal>
-        </div>
+        </div >
     )
 }
 

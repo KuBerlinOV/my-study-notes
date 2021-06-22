@@ -17,9 +17,11 @@ const Notes = ({ libraryId }) => {
     }
 
     return (
-        <div className='notes-page'>
-            <NotesListFilters />
-            <h3>My Notes</h3>
+        <main className='notes-page'>
+            <div className='notes-page-top'>
+                <h1>My Notes</h1>
+                <NotesListFilters />
+            </div>
             {libraryId && <button onClick={handleModal}>Create Note</button>}
             <Modal
                 isOpen={showModal}
@@ -29,7 +31,7 @@ const Notes = ({ libraryId }) => {
                 <AddNote handleModal={handleModal} libraryId={libraryId} />
             </Modal>
             <NotesList libraryId={libraryId} />
-        </div>
+        </main>
     )
 }
 

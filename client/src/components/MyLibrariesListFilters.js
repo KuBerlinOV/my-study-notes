@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { setEndDate, setStartDate, setTextFilter, sortByDate, sortByStatus } from '../actions/filters';
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
-import 'react-dates/lib/css/_datepicker.css';
+import { Button } from '@material-ui/core';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 export const MyLibrariesListFilters = (props) => {
     const [calendarFocused, setCalendarFocused] = useState(null)
@@ -17,28 +18,19 @@ export const MyLibrariesListFilters = (props) => {
     const handleOnFocusChange = (calFocused) => {
         setCalendarFocused(calFocused)
     };
-    //sortBy status or date
-    const handleStatusChange = (e) => {
-        e.target.value === "status" ? props.sortByStatus() : props.sortByDate()
-    };
     //search by input text
     const handleTextInputChange = (e) => {
         props.setTextFilter(e.target.value)
     }
 
     return (
-        <div>
+        <div className='lib-filters'>
             <div className="search-libraries">
-                <h3>Search</h3>
-                <input type="text" value={props.filters.text} onChange={handleTextInputChange} />
+                <h3 className='hd-sm' >Search:</h3>
+                <input className='text-input' type="text" value={props.filters.text} onChange={handleTextInputChange} />
             </div>
             <div className="sort-notes" >
-                <h3>Sort by</h3>
-                <select
-                    value={props.filters.sortBy}
-                    onChange={handleStatusChange}>
-                    <option value="date">Date</option>
-                </select>
+                <h3 className='hd-sm'>Filter by date:</h3>
                 <DateRangePicker
                     startDate={props.filters.startDate}
                     endDate={props.filters.endDate}
@@ -52,6 +44,7 @@ export const MyLibrariesListFilters = (props) => {
                     endDateId="endDateId"
                 />
             </div>
+            <Button onClick={props.handleFilters} className='btn btn-close'>Close<CancelIcon /></Button>
         </div>
     )
 }

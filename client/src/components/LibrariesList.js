@@ -7,22 +7,24 @@ import LibraryInfoCard from './LibraryInfoCard';
 
 const LibrariesList = (props) => {
     return (
-        <div id='lib-list' className='lib-list'>
-            { props.libraries.length === 0 ? (
-                <p>Create your first library and organize your study</p>
-            ) : (
-                props.libraries.map(library => {
-                    return <LibraryInfoCard
-                        id={library.id}
-                        topic={library.topic}
-                        description={library.description}
-                        tag={library.tag}
-                        createdAt={library.createdAt}
-                    />
-                })
+        <div className='lib-ls'>
+            {
+                props.libraries.length === 0 ? (
+                    <p>Create your first library and organize your study</p>
+                ) : (
+                    props.libraries.map(library => {
+                        return <LibraryInfoCard
+                            id={library.id}
+                            topic={library.topic}
+                            description={library.description}
+                            tag={library.tag}
+                            createdAt={library.createdAt}
+                        />
+                    })
 
 
-            )}
+                )
+            }
             <PrivateRoute path='/libaries/:id' component={Library} />
         </div>
     )
