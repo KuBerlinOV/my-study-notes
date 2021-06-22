@@ -4,6 +4,7 @@ import { history } from '../routers/approuter';
 import NotesList from './NotesList'
 import NotesListFilters from './NotesListFilters';
 import AddNote from './AddNote';
+import { Button } from '@material-ui/core';
 
 
 
@@ -20,9 +21,9 @@ const Notes = ({ libraryId }) => {
         <main className='notes-page'>
             <div className='notes-page-top'>
                 <h1>My Notes</h1>
+                {libraryId && <Button onClick={handleModal}>Create Note</Button>}
                 <NotesListFilters />
             </div>
-            {libraryId && <button onClick={handleModal}>Create Note</button>}
             <Modal
                 isOpen={showModal}
                 ariaHideApp={false}
