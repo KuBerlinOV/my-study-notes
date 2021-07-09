@@ -9,13 +9,11 @@ export const NotesList = (props) => {
         return (
             <div className='notes-list'>
                 {props.notes.map(note => {
-
                     return <Note
                         key={note.id}
                         id={note.id}
                         {...note}
                         showModal={props.showModal}
-                        libraryId={props.libraryId}
                     /> //<- {...note} this is spreading the note objects with all their key/value pairs and return from the state into the props.
                 })}
             </div>

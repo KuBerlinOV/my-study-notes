@@ -46,14 +46,6 @@ main{
             .lib-btns{
                 flex-direction: row;
             }
-            .btn-lg{
-                margin: 1em;
-                width: 12em;
-                background-color: $background-color-secondary;
-                color: inherit;
-                &:hover{
-                    background-color: #5B79B8;
-                }
             }
         }
 
@@ -121,4 +113,4 @@ main{
                 }
             }
     }
-}
+

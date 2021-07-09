@@ -1,11 +1,21 @@
 main{
     &.notes-page{
-        height: auto;
+        height: 100vh;
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
+        background: $background-color;
         // justify-content: space-around;
+        .hd-md{
+            position: fixed;
+            top: 6em;
+            z-index: 1;
+        }
+        .btn-lg{
+            position: relative;
+            top: 12em;
+        }
         .notes-list{
             position: relative;
             display: flex;
@@ -13,7 +23,7 @@ main{
             justify-content: flex-start;
             align-items: center;
             top: 17em;
-            z-index: 1;
+            z-index: 0;
             .note-card{
                 overflow: hidden;
                 display: flex;
@@ -28,6 +38,7 @@ main{
                 height: 35em;
                 margin: 1em;
                 border-radius: 0.4em;
+        
                 .note-card-info{
                     overflow: hidden;
                     display: flex;
@@ -48,47 +59,12 @@ main{
                 }
                 .hd-md{
                     position: relative;
-                    top: 1.1em;
+                    top: 0em;
                     height:10%;
                     font-weight: 800;
                 }
             }
         }
-        .notes-page-top{
-            background: $background-color;
-            top: 3em;
-            position: fixed;
-            display: flex;
-            flex-direction:column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            z-index: 30;
-            height: 4.2em;
-            .notes-filters{
-                background: $background-color;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-evenly;
-                height:auto;
-                width: 100%;
-                font-size: 1.3em;
-                position: fixed;
-                top: 5.5em;
-                .text-input{
-                    height: 47.3px;
-                    font-size: 2em;
-                    width: 10em;
-                    border: 1px solid white;
-                    margin-right: 1em;
-                }
-                .notes-sort{
-                    margin-right: 0.2em;
-                    width: 100px;
-                    height: 47.3px;
-                    font-size: 1em;
-                }
-        }
-    }
 }
 }
+

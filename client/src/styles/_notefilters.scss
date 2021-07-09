@@ -1,0 +1,24 @@
+.notes-filters{
+    background: $background-color;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height:auto;
+    width: 100%;
+    font-size: 1.3em;
+    position: fixed;
+    top: 2.5em;
+    .text-input{
+        height: 47.3px;
+        font-size: 2em;
+        width: 10em;
+        border: 1px solid white;
+        margin-right: 1em;
+    }
+    .notes-sort{
+        margin-right: 0.2em;
+        width: 100px;
+        height: 47.3px;
+        font-size: 1em;
+    }
+}

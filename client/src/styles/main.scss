@@ -4,6 +4,7 @@
 @import './loginpage';
 @import './mylibraries';
 @import './notes';
+@import './notefilters';
 
 *{
     box-sizing: border-box;
@@ -51,6 +52,15 @@ body{
     //heading medium
     .hd-md{
         font-size: 1.8em;
+    }
+    .btn-lg{
+        margin: 1em;
+        width: 12em;
+        background-color: $background-color-secondary;
+        color: inherit;
+        &:hover{
+            background-color: #5B79B8;
+        }
     }
 }
 

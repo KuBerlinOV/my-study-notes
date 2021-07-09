@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { setEndDate, setStartDate, setTextFilter, sortByDate, sortByStatus } from '../actions/filters';
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
@@ -25,24 +25,24 @@ export const NotesListFilters = (props) => {
     const handleTextInputChange = (e) => {
         props.setTextFilter(e.target.value)
     }
-
+    const filters = useSelector(state => state.filters)
     return (
         <div className='notes-filters'>
             <div className="notes-filters-search">
                 <h3>Search</h3>
-                <input type="text" className='text-input' value={props.filters.text} onChange={handleTextInputChange} />
+                <input type="text" className='text-input' value={filters.text} onChange={handleTextInputChange} />
             </div>
             <div className='filters-sort' >
                 <h3>Sort by</h3>
                 <select className="notes-sort"
-                    value={props.filters.sortBy}
+                    value={filters.sortBy}
                     onChange={handleStatusChange}>
                     <option value="status">Status</option>
                     <option value="date">Date</option>
                 </select>
                 <DateRangePicker
-                    startDate={props.filters.startDate}
-                    endDate={props.filters.endDate}
+                    startDate={filters.startDate}
+                    endDate={filters.endDate}
                     onDatesChange={handleDatesChange}
                     focusedInput={calendarFocused}
                     showClearDates={true}
@@ -57,13 +57,12 @@ export const NotesListFilters = (props) => {
     )
 }
 
+
 const mapStateToProps = (state) => {
     return {
         filters: state.filters
     }
 }
-
-//dispatching to props in order to test if they are called with the correct data when dispatch
 const mapDispatchToProps = (dispatch) => ({
     sortByDate: () => dispatch(sortByDate()),
     sortByStatus: () => dispatch(sortByStatus()),
@@ -71,5 +70,6 @@ const mapDispatchToProps = (dispatch) => ({
     setEndDate: (endDate) => dispatch(setEndDate(endDate)),
     setTextFilter: (text) => dispatch(setTextFilter(text))
 })
+//dispatching to props in order to test if they are called with the correct data when dispatch
 
 export default connect(mapStateToProps, mapDispatchToProps)(NotesListFilters);
