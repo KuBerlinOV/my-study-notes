@@ -260,5 +260,19 @@ main{
     }
   }
   }
-
+  &.notes-page{
+      .notes-filters{
+        flex-direction: column;
+        position: fixed;
+        height: auto;
+        width: 80%;
+        top: 1.5em;
+        z-index: 71;
+        background: rgba($background-color, 0.6);
+      }
+      .notes-list{
+          position: relative;
+          top: 6.8em;
+      }
+  }
 }

@@ -18,9 +18,11 @@ export const Library = ({
     const library = libraries.find(({ id }) => id === match.params.id)
     return (
         <main id='notes-page' className='notes-page'>
-            <h3 class='hd-md'>{library.topic} </h3>
-            <Button className='btn-lg' onClick={handleModal}>Create Note</Button>
-            <NotesListFilters />
+            <div className='notes-page-top'>
+                <h2 class='hd-md'>{library.topic} </h2>
+                <Button className='btn-lg' onClick={handleModal}>Create Note</Button>
+                <NotesListFilters />
+            </div>
             <NotesList notes={notes} libraryId={match.params.id} />
             <Modal
                 isOpen={showModal}

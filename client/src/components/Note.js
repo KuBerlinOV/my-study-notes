@@ -40,11 +40,11 @@ export const Note = ({ topic, description, text, reference, tag, createdAt, id, 
             </div>
             <hr />
             <div className='note-card-btn'>
-                <button onClick={() => {
+                <button className='btn-lg' onClick={() => {
                     startUpdateStatus(id)
                 }}>Change status</button>
-                <button onClick={handleModal}>Delete</button>
-                <button onClick={() => {
+                <button className='btn-lg' onClick={handleModal}>Delete</button>
+                <button className='btn-lg' onClick={() => {
                     history.push(`/editnote/${id}`)
                 }}> Edit</button>
             </div>
@@ -57,7 +57,7 @@ export const Note = ({ topic, description, text, reference, tag, createdAt, id, 
                 <h3>Are you sure?</h3>
                 <p>Do you really want to delete this note? This process cannot be undone!</p>
 
-                <button onClick={() => { startRemoveNote(id) }}>Delete</button>
+                <button className='btn-lg' onClick={() => { startRemoveNote(id) }}>Delete</button>
             </Modal>
         </div >
     )

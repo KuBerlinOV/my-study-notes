@@ -6,6 +6,9 @@ main{
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
+        height: 100vh;
+        overflow-y: visible;
         .hd-lg{
             font-size: 3em;
         }
@@ -35,14 +38,16 @@ main{
             }
         }
         .lib-top{
-            top: 5em;
+            top: 3.1em;
             position: fixed;
             display: flex;
             flex-direction:column;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
             width: 100%;
-            height: auto;
+            height: 20vh;
+            z-index: 100;
+            background: rgba($background-color, 0.6);
             .lib-btns{
                 flex-direction: row;
             }
@@ -58,10 +63,13 @@ main{
                 flex-wrap: wrap;
                 position: relative;
                 top: 20em;
-            width: 100%;
-            height: auto;
+                height: auto;
+                overflow-y: visible;
+            &::-webkit-scrollbar {
+                width: 0px; 
+                background: transparent; 
+                };
                 .lib-card{
-                    overflow: hidden;
                     display: flex;
                     flex-direction: column;
                     text-align: center;

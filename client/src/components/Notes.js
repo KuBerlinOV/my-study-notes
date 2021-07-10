@@ -1,6 +1,7 @@
 import React from 'react';
 import NotesList from './NotesList'
 import NotesListFilters from './NotesListFilters';
+import { Button } from '@material-ui/core';
 
 
 const Notes = () => {
@@ -8,8 +9,7 @@ const Notes = () => {
 
 
     return (
-        <main className='notes-page'>
-            <h2 className='hd-md'>My Notes</h2>
+        <main id='notes-page' className='notes-page'>
             <NotesListFilters />
             <NotesList />
         </main>
