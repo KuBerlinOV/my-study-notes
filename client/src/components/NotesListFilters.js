@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { connect, useSelector } from 'react-redux';
 import { setEndDate, setStartDate, setTextFilter, sortByDate, sortByStatus } from '../actions/filters';
 import 'react-dates/initialize';
+import CancelIcon from '@material-ui/icons/Cancel';
+import { Button } from '@material-ui/core';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 
@@ -28,6 +30,7 @@ export const NotesListFilters = (props) => {
     const filters = useSelector(state => state.filters)
     return (
         <div className='notes-filters'>
+            <Button onClick={props.handleFilters} className='btn btn-close'>Close<CancelIcon /></Button>
             <div className="notes-filters-search">
                 <h3>Search</h3>
                 <input type="text" className='text-input' value={filters.text} onChange={handleTextInputChange} />

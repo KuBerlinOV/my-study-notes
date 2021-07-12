@@ -6,7 +6,6 @@ import NoteForm from './NoteForm';
 
 export const AddNote = ({ libraryId, startAddNote, handleModal }) => {
     return (
-
         <NoteForm
             handleModal={handleModal}
             libraryId={libraryId}

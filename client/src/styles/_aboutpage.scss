@@ -1,0 +1,23 @@
+main{
+&.about-page{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    justify-content: flex-start;
+    align-items: center;
+    .hd-lg{
+       margin-top: 3em;
+    }
+    .text{
+        text-align: center;
+        width: 80%;
+        position: relative;
+        top: 2em;
+        background: $background-color-secondary;
+        padding: 0.5em;
+        border-radius: 1.5em;
+    }
+}
+}

@@ -12,19 +12,31 @@ main{
             height: 25vh;
             background: $background-color;
             display: flex;
+            position: fixed;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 10;
-            .hd-md{
-                position: fixed;
-                top: 6em;
+            .btns-notes{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                // position: relative;
+            }
+            .hd-lg{
+                margin-top: 3em;
                 z-index: 10;
             }
-            .btn-lg{
-                position: fixed;
-                top: 11em;
-                z-index: 10;
+            // .btn-lg{
+            //     position: fixed;
+            //     top: 11em;
+            //     z-index: 10;
+            // }
+            .btn-close{
+                color: white;
+                position: absolute;
+                top: -0.5em;
+                right: 0;
             }
         }
       

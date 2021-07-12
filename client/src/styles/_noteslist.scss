@@ -37,23 +37,35 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: flex-start;
             align-items: center;
             width: 80vw;
             height: 27em;
             margin: 0 0.5em 0 0.5em;
             .info-text{
-                font-size: 1.5em;
+                font-size: 1.1em;
                 font-weight: 600;
-                &#note-text{
-                    font-weight: 700;
-                    height: 60%;
-                }
+            }
+            &#note-text{
+                font-weight: 700;
+                height: 70%;
+            }
+            .add-info{
+
+                height: 1em;
+                margin: 0;
             }
         }
         .note-card-btn{
+            height: 10%;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
             .btn-lg{
                 color: white;
+                height: 2em;
             }
         }
         .hd-md{
