@@ -4,6 +4,12 @@
 @import './loginpage';
 @import './mylibraries';
 @import './notes';
+@import './notefilters';
+@import './noteslist';
+@import './addlibrary';
+@import './addnote';
+@import './aboutpage';
+@import './editnote';
 
 *{
     box-sizing: border-box;
@@ -11,6 +17,10 @@
 }
 
 body{
+    .router-container{
+        height: 100vh;
+        width: 100%;
+    }
     .main-approuter{
         height: 100vh;
         width: 100%;
@@ -18,7 +28,12 @@ body{
     .hide{
         display: none;
     }
-    
+    .btn-lg{
+        border-radius: 1em;
+        border: none;
+        height: 2.3em;
+        color: white;
+    }
     font-family: $main-font;
     font-size: 12px;
     color: $primary-color;
@@ -51,6 +66,15 @@ body{
     //heading medium
     .hd-md{
         font-size: 1.8em;
+    }
+    .btn-lg{
+        margin: 1em;
+        width: 12em;
+        background-color: $background-color-secondary;
+        color: inherit;
+        &:hover{
+            background-color: #5B79B8;
+        }
     }
 }
 

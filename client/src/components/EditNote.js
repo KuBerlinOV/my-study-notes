@@ -6,7 +6,7 @@ import { startUpdateNote } from '../actions/notes';
 
 export const EditNote = (props) => {
     return (
-        <div>
+        <main className='editnote-page'>
             <NoteForm
                 //note before update
                 note={props.note}
@@ -18,7 +18,7 @@ export const EditNote = (props) => {
                     props.history.push('/notes')
                 }}
             />
-        </div>
+        </main>
     )
 }
 

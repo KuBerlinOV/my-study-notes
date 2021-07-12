@@ -7,7 +7,8 @@ import { history } from '../routers/approuter';
 
 export const EditLibrary = (props) => {
     return (
-        <div>
+        <div className='add-lib'>
+            <h2 className='hd-md'>Edit Library</h2>
             <LibraryForm
                 //library before update
                 library={props.library}

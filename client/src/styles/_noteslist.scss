@@ -1,0 +1,78 @@
+.notes-list{
+    overflow-y: scroll;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: $background-color;
+    width: 100%;
+    margin-top: 25vh;
+    height: calc(100% - 100px);
+    z-index: 0;
+    &::-webkit-scrollbar {
+        width: 0px; 
+        background: transparent; 
+        };
+    .note{
+        height: 35;
+    }
+    .note-card{
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        color: black;
+        border: black;
+        background-color: white;
+        width: 80vw;
+        height: 35em;
+        margin: 1em;
+        border-radius: 0.4em;
+        z-index: 0;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+        .note-card-info{
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            width: 80vw;
+            height: 27em;
+            margin: 0 0.5em 0 0.5em;
+            .info-text{
+                font-size: 1.1em;
+                font-weight: 600;
+            }
+            &#note-text{
+                font-weight: 700;
+                height: 70%;
+            }
+            .add-info{
+
+                height: 1em;
+                margin: 0;
+            }
+        }
+        .note-card-btn{
+            height: 10%;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            .btn-lg{
+                color: white;
+                height: 2em;
+            }
+        }
+        .hd-md{
+            position: relative;
+            top: 0em;
+            height:10%;
+            font-weight: 800;
+        }
+    }
+}

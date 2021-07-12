@@ -45,24 +45,22 @@ const NoteForm = (props) => {
     }
     //explanation why this value={state.topic || ''} was needed https://stackoverflow.com/questions/44312437/react-router-v4-this-props-history-push-not-working
     return (
-        <div>
-            <form onSubmit={handleSubmit} data-testid="form" action="">
-                <h3>Create Note</h3>
-                <h3>Topic:</h3>
-                <input type="text" placeholder="topic" name="topic" autoFocus value={state.topic || ''} onChange={handleChange} />
-                <h3>Note</h3>
-                <textarea placeholder="write your note here" name="text" id="" cols="30" rows="10" value={state.text || ''} onChange={handleChange} ></textarea>
-                <h3>Reference</h3>
-                <input type="text" placeholder="reference" name="reference" id="" value={state.reference || ''} onChange={handleChange} />
-                <h3>Tag</h3>
-                <input type="text" placeholder="tag" name="tag" value={state.tag || ''} onChange={handleChange} />
+        <form className='note-form' onSubmit={handleSubmit} data-testid="form" action="">
+            {props.note ? <h2>Edit Note</h2> : <h2>Create Note</h2>}
+            <label>Topic:</label>
+            <input className='input' type="text" placeholder="topic" name="topic" autoFocus value={state.topic || ''} onChange={handleChange} />
+            <label>Note</label>
+            <textarea className='input textarea' placeholder="write your note here" name="text" id="" cols="30" rows="10" value={state.text || ''} onChange={handleChange} ></textarea>
+            <label>Reference</label>
+            <input className='input' type="text" placeholder="reference" name="reference" id="" value={state.reference || ''} onChange={handleChange} />
+            <label>Tag</label>
+            <input className='input' type="text" placeholder="tag" name="tag" value={state.tag || ''} onChange={handleChange} />
 
-                <div>
-                    {state.error && <p>{state.error}</p>}
-                    <button>Save</button>
-                </div>
-            </form>
-        </div>
+            <div className='btn-container'>
+                {state.error && <p className='text-sub'>{state.error}</p>}
+                <button className='btn-lg' >Save</button>
+            </div>
+        </form>
     )
 }
 

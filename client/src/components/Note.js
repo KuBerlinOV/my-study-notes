@@ -5,18 +5,8 @@ import { startRemoveNote, startUpdateStatus } from '../actions/notes'
 import Modal from 'react-modal';
 //here I imported the history object created in approuter, as note does not have access to it, as it is not rendered in the approuter. It is out of the context
 import { history } from '../routers/approuter';
-// note: {
-//     id: uuid(),
-//     topic,
-//     description,
-//     note,
-//     reference,
-//     tag,
-//     status,
-//     createdAt
-// }
 
-export const Note = ({ topic, description, text, reference, tag, createdAt, id, status, startUpdateStatus, startRemoveNote }) => {
+export const Note = ({ topic, text, reference, tag, id, status, startUpdateStatus, startRemoveNote }) => {
     // const history = useHistory(); // use this instead of link to redirect to another page with params
     const [openModal, setOpenModal] = useState(false)
 
@@ -32,19 +22,18 @@ export const Note = ({ topic, description, text, reference, tag, createdAt, id, 
             <hr />
             <div className='note-card-info'>
                 <p className='info-text' id='note-text'>{text} </p>
-                <hr />
-                <p className='info-text'>Reference: {reference} </p>
-                <p className='info-text'>Tag: {tag} </p>
-                <p className='info-text'>Status: {status}</p>
-                <p className='info-text'>{moment(createdAt).format('MMMM Do YYYY, h:mm')} </p>
             </div>
             <hr />
+            <p className='info-text add-info'>Reference: {reference} </p>
+            <p className='info-text add-info'>Tag: {tag} </p>
+            <p className='info-text add-info'>Status: {status}</p>
+            <hr />
             <div className='note-card-btn'>
-                <button onClick={() => {
+                <button className='btn-lg' onClick={() => {
                     startUpdateStatus(id)
                 }}>Change status</button>
-                <button onClick={handleModal}>Delete</button>
-                <button onClick={() => {
+                <button className='btn-lg' onClick={handleModal}>Delete</button>
+                <button className='btn-lg' onClick={() => {
                     history.push(`/editnote/${id}`)
                 }}> Edit</button>
             </div>
@@ -57,7 +46,7 @@ export const Note = ({ topic, description, text, reference, tag, createdAt, id, 
                 <h3>Are you sure?</h3>
                 <p>Do you really want to delete this note? This process cannot be undone!</p>
 
-                <button onClick={() => { startRemoveNote(id) }}>Delete</button>
+                <button className='btn-lg' onClick={() => { startRemoveNote(id) }}>Delete</button>
             </Modal>
         </div >
     )

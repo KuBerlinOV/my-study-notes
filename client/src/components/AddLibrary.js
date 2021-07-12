@@ -6,12 +6,15 @@ import LibraryForm from './LibraryForm';
 export const AddLibrary = (props) => {
 
     return (
-        <LibraryForm
-            handleSubmit={(library) => {
-                props.startAddLibrary(library);
-                props.history.push('/libraries');
-            }}
-        />
+        <div className='add-lib'>
+            <h2 className='hd-md'>Create Library</h2>
+            <LibraryForm
+                handleSubmit={(library) => {
+                    props.startAddLibrary(library);
+                    props.history.push('/libraries');
+                }}
+            />
+        </div>
     )
 }
 
