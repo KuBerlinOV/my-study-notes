@@ -1,22 +1,21 @@
 .notes-list{
     overflow-y: scroll;
-    position: relative;
     display: flex;
     flex-direction: column;
+    position: relative;
     justify-content: flex-start;
     align-items: center;
     background: $background-color;
+    position: fixed;
     width: 100%;
     margin-top: 25vh;
-    height: calc(100% - 100px);
+    height: 100vh;
     z-index: 0;
     &::-webkit-scrollbar {
         width: 0px; 
         background: transparent; 
         };
-    .note{
-        height: 35;
-    }
+  
     .note-card{
         overflow: hidden;
         display: flex;

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import moment from 'moment';
 import { startRemoveNote, startUpdateStatus } from '../actions/notes'
 import Modal from 'react-modal';
 //here I imported the history object created in approuter, as note does not have access to it, as it is not rendered in the approuter. It is out of the context

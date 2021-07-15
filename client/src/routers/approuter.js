@@ -14,6 +14,7 @@ import Header from '../components/Header';
 import AddLibrary from '../components/AddLibrary';
 import EditLibrary from '../components/EditLibrary';
 import Library from '../components/Library';
+import AddNote from '../components/AddNote';
 
 //this npm history is needed in order to be able to access the history outside of the context of this 
 //component, which is in the index.js file where we redirect users. See note in the index.js file
@@ -33,6 +34,7 @@ const AppRouter = () => {
                     <PrivateRoute exact path='/libraries' component={MyLibraries} />
                     <PrivateRoute path='/addlibrary' component={AddLibrary} />
                     <PrivateRoute exact path='/editnote/:id' component={EditNote} />
+                    <PrivateRoute exact path='/addnote' component={AddNote} />
                     <Route path='/about' component={About} />
                     <Route component={NotFoundPage} />
                 </Switch>

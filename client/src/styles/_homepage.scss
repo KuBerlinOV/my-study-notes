@@ -1,6 +1,8 @@
 
 div{
     &.homepage{
+        height: 100vh;
+        top: 0;
         .hp-title{
             font-size: 1.8em;
             display: flex;

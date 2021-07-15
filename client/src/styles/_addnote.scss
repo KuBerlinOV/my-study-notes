@@ -1,11 +1,10 @@
-.modal{
-    width: 80%;
+.addnote{
+    width: 90%;
     position: absolute;
-    top: 20vh;
-    left: 10%;
+    top: 10vh;
+    left: 5%;
     background: $background-color;
-    height: 60vh;
-    z-index: 100;
+    height: 80vh;
     border-radius: 1.5em;
     .note-form{
         display: flex;

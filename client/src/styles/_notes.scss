@@ -6,6 +6,7 @@ main{
         flex-direction: column;
         align-items: center;
         background: $background-color;
+        overflow-y: hidden;
         // justify-content: space-around;
         .notes-page-top{
             width: 100%;
@@ -13,6 +14,7 @@ main{
             background: $background-color;
             display: flex;
             position: fixed;
+            overflow-y: hidden;
             flex-direction: column;
             justify-content: center;
             align-items: center;
